@@ -1,4 +1,4 @@
-import Google from "../image/Vector.png"
+import Google from "../../assets/icons/Vector.png"
 const SignupForm = () => {
   return (
     <form className="bg-white mt-10 px-[100px] pb-[40px]">

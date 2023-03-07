@@ -1,6 +1,7 @@
 import { NavAuth } from "../components/partials/appbar/TopAppBar";
 import LoginForm from "../components/Auth/LoginForm";
-import Gbrorg from "../components/image/loginHD.png"
+import Gbrorg from "../assets/images/loginHD.png"
+
 
 const Login = () => {
   return (   

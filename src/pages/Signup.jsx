@@ -1,7 +1,8 @@
 import AppLayout from "../components/partials/applayout/AppLayout";
 import { NavAuth } from "../components/partials/appbar/TopAppBar";
 import SignupForm from "../components/Auth/SignupForm";
-import Gbrorg2 from "../components/image/Signup.png"
+import Gbrorg2 from "../assets/images/Signup.png"
+
 const Signup = () => {
     return (
         <div className="md:flex min-h-[100vh]">

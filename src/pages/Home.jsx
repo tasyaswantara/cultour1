@@ -1,8 +1,8 @@
 import AppLayout from "../components/partials/applayout/AppLayout";
 import styled from "styled-components";
-import Batik from "../components/image/batik.png";
-import Orang1 from "../components/image/fix1.png";
-import Budies from "../components/image/Buddies.png"
+import Batik from "../assets/icons/batik.png";
+import Orang1 from "../assets/images/fix1.png";
+import Budies from "../assets/icons/Buddies.png"
 import DataStatistik,{OurCourse, FormSearch} from "../components/DataHome";
 
 const Home = () => {

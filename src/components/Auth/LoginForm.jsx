@@ -1,4 +1,4 @@
-import Google from "../image/Vector.png"
+import Google from "../../assets/icons/Vector.png"
 
 const LoginForm = () => {
   return (
