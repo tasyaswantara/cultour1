@@ -1,8 +1,35 @@
-import Google from "../../assets/icons/Vector.png"
+import axios from "axios";
+import { useState } from "react";
+import Google from "../../assets/icons/Vector.png";
 
 const LoginForm = () => {
+  const [email,setEmail]=useState('')
+  const [password,setPassword]=useState('')
+  const [error,setError]= useState({
+    message: '',
+    status: ''
+  })
+  const handleLogin = (event) => {    
+    event.preventDefault()
+    console.log("disubmit")
+    axios.post("https://tweet-api.up.railway.app/api/v1/auth/login",{
+      email: email,
+      password: password
+    }
+      
+    )
+      .then((response) => {
+        console.log(response);
+        window.localStorage.setItem('token',response.data.token.token)
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(err.response.data)
+      });
+  };
   return (
-    <form className="bg-white mt-10 px-[100px] pb-[40px]">
+    <form onSubmit={handleLogin} className="bg-white mt-10 px-[100px] pb-[40px]">
+      <h3 className="text-[red]">{error.message}</h3>
       <h1 className="text-[#7E370C] font-bold text-2xl mb-1">
         Selamat Datang!
       </h1>
@@ -19,7 +46,7 @@ const LoginForm = () => {
             className="pl-2 outline-none w-full border-none text-[12px] text-[#7E370C] placeholder-[#7E370C] placeholder-opacity-50"
             type="email"
             name="Email"
-            id=""
+            onChange={(e)=>{setEmail(e.target.value)}}
             required
             placeholder="Masukkan Email Anda"
           />
@@ -34,14 +61,14 @@ const LoginForm = () => {
             className="pl-2 outline-none w-full border-none text-[12px] text-[#7E370C] placeholder-[#7E370C] placeholder-opacity-50"
             type="password"
             name="password"
-            id=""
+            onChange={(e)=>{setPassword(e.target.value)}}
             required
             placeholder="Masukkan Password Anda"
           />
         </div>
       </div>
       <div className="text-[12px] my-[20px] float-right w-full font-semibold text-[#7E370C]">
-        <input type="checkbox" className="align-middle mr-2"/>
+        <input type="checkbox" className="align-middle mr-2" />
         Ingatkan saya
         <div className="float-right opacity-50 hover:text-[#7E370C] hover:opacity-100 cursor-pointer">
           Lupa Password ?
@@ -60,6 +87,7 @@ const LoginForm = () => {
         </div>
         <div className="bg-[#7E370C] w-[40%] h-[1px] opacity-50"></div>
       </div>
+      <a href="/signup">
       <div
         type="submit"
         className="flex justify-center items-center border-[1.5px] border-[#7E370C] py-2 px-7 rounded-[5px]"
@@ -69,6 +97,7 @@ const LoginForm = () => {
           Sign Up with Google
         </div>
       </div>
+      </a>
     </form>
   );
 };

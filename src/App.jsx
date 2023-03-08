@@ -8,18 +8,39 @@ import Home from './pages/Home'
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NotFound from './pages/404';
+import ProtectedRoute from './components/Routes/ProtectedRoute';
+import AuthRoute from './components/Routes/AuthRoute';
+import { AuthContext } from './config/Auth';
+
 
 
 function App() {
+  const isAnyToken = JSON.parse(localStorage.getItem("token"));
+  const userId = JSON.parse(localStorage.getItem("id"));
+  const [authToken, setAuthToken] = useState(isAnyToken);
+  const [user, setUser] = useState(userId);
+
+  const setAndGetTokens = (token, id) => {
+    localStorage.setItem("token", JSON.stringify(token));
+    localStorage.setItem("id", JSON.stringify(id));
+    setAuthToken(token);
+    setUser(id);
+  }
   return (
+    <AuthContext.Provider value={{ authToken, setAndGetTokens, user }}>
     <div className="App">
       <Routes>
+        {/* <Route element={<ProtectedRoute/>}> */}
         <Route path='/' element={<Home />} />
+        {/* </Route> */}
+        {/* <Route element={<AuthRoute/>}> */}
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup/>} />
+        {/* </Route> */}
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
+    </AuthContext.Provider>
   )
 }
 

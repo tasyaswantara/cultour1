@@ -1,5 +1,8 @@
+import axios from "axios";
 import React from "react";
 import styled from "styled-components";
+import { useAuth } from "../../../config/Auth";
+
 
 const Span = styled.span`
 font-style: normal;
@@ -19,6 +22,11 @@ const NavAuth=()=>{
 }
 
 const TopAppBar = () => {
+  const { setAndGetTokens } = useAuth();
+  const handleLogout = () => {
+    setAndGetTokens();
+    localStorage.clear();
+  };
   return (
     <nav className="bg-white px-2 sm:px-4 pt-1  fixed w-full z-20 top-0 left-0">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
@@ -63,6 +71,14 @@ const TopAppBar = () => {
                 className="block py-2 pl-3 pr-4 text-[#7E370C] rounded-xl hover:bg-[#FFCE45] hover:duration-700"
               >
                 Login
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={handleLogout}
+                className="block py-2 pl-3 pr-4 text-[#7E370C] rounded-xl hover:bg-[#FFCE45] cursor-pointer hover:duration-700"
+              >
+                Logout
               </a>
             </li>
           </ul>

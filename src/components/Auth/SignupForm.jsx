@@ -1,7 +1,24 @@
+import axios from "axios";
+import { useState } from "react";
 import Google from "../../assets/icons/Vector.png"
 const SignupForm = () => {
+  const [email,setEmail]=useState('')
+  const [password,setPassword]=useState('')
+  const handleSignup =(event)=>{
+    event.preventDefault()
+    axios.post('https://tweet-api.up.railway.app/api/v1/auth/register',{
+      email: email,
+      password: password
+    })
+    .then((apapun)=>{
+      console.log(apapun)
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  }
   return (
-    <form className="bg-white mt-10 px-[100px] pb-[40px]">
+    <form onSubmit={handleSignup} className="bg-white mt-10 px-[100px] pb-[40px]">
       <h1 className="text-[#7E370C] font-bold text-2xl mb-1">
         Selamat Datang!
       </h1>
@@ -18,7 +35,6 @@ const SignupForm = () => {
             className="pl-2 outline-none w-full border-none text-[12px] text-[#7E370C] placeholder-[#7E370C] placeholder-opacity-50"
             type="text"
             name="nama"
-            id=""
             required
             placeholder="Masukkan Nama Anda"
           />
@@ -33,7 +49,7 @@ const SignupForm = () => {
             className="pl-2 outline-none w-full border-none text-[12px] text-[#7E370C] placeholder-[#7E370C] placeholder-opacity-50"
             type="email"
             name="Email"
-            id=""
+            onChange={(e)=>{setEmail(e.target.value)}}
             required
             placeholder="Masukkan Email Anda"
           />
@@ -48,7 +64,7 @@ const SignupForm = () => {
             className="pl-2 outline-none w-full border-none text-[12px] text-[#7E370C] placeholder-[#7E370C] placeholder-opacity-50"
             type="password"
             name="password"
-            id=""
+            onChange={(e)=>{setPassword(e.target.value)}}
             required
             placeholder="Masukkan Password Anda"
           />
@@ -75,7 +91,7 @@ const SignupForm = () => {
         <div className="bg-[#7E370C] w-[40%] h-[1px] opacity-50"></div>
       </div>
       <div
-        type="submit"
+        type=" "
         className="flex justify-center items-center border-[1.5px] border-[#7E370C] py-2 px-7 rounded-[5px]"
       >
         <div className="flex pl-2 outline-none w-[90%] border-none justify-center items-center text-center text-[10px] font-semibold text-[#7E370C] m-auto ">
