@@ -5,6 +5,7 @@ import Orang1 from "../assets/images/fix1.png";
 import Budies from "../assets/icons/Buddies.png"
 import DataStatistik,{OurCourse, FormSearch} from "../components/DataHome";
 
+
 const Home = () => {
   const Konten = styled.div`
     width: 60%;
@@ -127,6 +128,7 @@ const Home = () => {
           </div>
         </Konten2>
         <DataStatistik/>
+
       </section>
       <section>
         <JudulSection>Our Course</JudulSection>

@@ -1,8 +1,8 @@
 import { Navigate, Outlet } from "react-router-dom"
 
-const AuthRoute=()=>{
+const AuthRoute= ({token}) => {
 if(window.localStorage.getItem('token')){
-    return <Navigate to="/"/>
+    return <Navigate to='/home'/>
 }else{
     return <Outlet/>
 }

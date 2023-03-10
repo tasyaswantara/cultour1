@@ -4,9 +4,11 @@ import Google from "../../assets/icons/Vector.png"
 const SignupForm = () => {
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
+  const [name,setName]=useState('')
   const handleSignup =(event)=>{
     event.preventDefault()
     axios.post('https://tweet-api.up.railway.app/api/v1/auth/register',{
+      
       email: email,
       password: password
     })
@@ -35,6 +37,7 @@ const SignupForm = () => {
             className="pl-2 outline-none w-full border-none text-[12px] text-[#7E370C] placeholder-[#7E370C] placeholder-opacity-50"
             type="text"
             name="nama"
+            onChange={(e)=>{setName(e.target.value)}}
             required
             placeholder="Masukkan Nama Anda"
           />

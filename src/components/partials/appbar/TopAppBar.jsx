@@ -10,7 +10,7 @@ font-weight: 800;
 font-size: 30px;
 line-height: 49px;
 color: #7E370C;
-margin-left:40px;
+margin-left:18px;
 `;
 
 const NavAuth=()=>{
@@ -27,8 +27,10 @@ const TopAppBar = () => {
     setAndGetTokens();
     localStorage.clear();
   };
+  
   return (
-    <nav className="bg-white px-2 sm:px-4 pt-1  fixed w-full z-20 top-0 left-0">
+    <>
+    <nav className="px-2 sm:px-4 pt-1  fixed w-full bg-white z-20 top-0 left-0">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <a href="/" className="flex items-center">
           <Span >
@@ -43,21 +45,36 @@ const TopAppBar = () => {
           <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
           <li>
               <a
-                href="#"
+                href="/berlangganan"
                 className="block py-2 pl-3 pr-4  text-[#7E370C] rounded-xl hover:bg-[#FFCE45] hover:duration-700 "
               >
                 Berlangganan
               </a>
             </li>
-            <li>
+            
+            {window.localStorage.getItem('token')?
+            (
+              <>
+              <li>
               <a
-                href="#"
+                href="/course"
                 className="block py-2 pl-3 pr-4 text-[#7E370C] rounded-xl hover:bg-[#FFCE45] hover:duration-700"
               >
                 Course
               </a>
             </li>
-            <li>
+              <li>
+              <a
+                onClick={handleLogout}
+                className="block py-2 pl-3 pr-4 text-[#7E370C] rounded-xl hover:bg-[#FFCE45] cursor-pointer hover:duration-700"
+              >
+                Logout
+              </a>
+            </li>
+            </>
+            ):(
+              <>
+              <li>
               <a
                 href="/signup"
                 className="block py-2 pl-3 pr-4 text-[#7E370C] rounded-xl hover:bg-[#FFCE45] hover:duration-700"
@@ -73,14 +90,11 @@ const TopAppBar = () => {
                 Login
               </a>
             </li>
-            <li>
-              <a
-                onClick={handleLogout}
-                className="block py-2 pl-3 pr-4 text-[#7E370C] rounded-xl hover:bg-[#FFCE45] cursor-pointer hover:duration-700"
-              >
-                Logout
-              </a>
-            </li>
+            </>
+            )
+            }
+            
+            
           </ul>
           
         </div>
@@ -89,6 +103,7 @@ const TopAppBar = () => {
         
       </div>
     </nav>
+    </>
   );
 };
 

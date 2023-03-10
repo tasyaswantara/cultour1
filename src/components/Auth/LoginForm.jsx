@@ -1,10 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 import Google from "../../assets/icons/Vector.png";
 
 const LoginForm = () => {
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
+  const [success,setSuccess]=useState('')
+  const [token, setToken] = useState(localStorage.getItem("token"))
   const [error,setError]= useState({
     message: '',
     status: ''
@@ -21,6 +24,8 @@ const LoginForm = () => {
       .then((response) => {
         console.log(response);
         window.localStorage.setItem('token',response.data.token.token)
+        setToken(response.data.token.token)
+        setSuccess(response.data.message)
       })
       .catch((err) => {
         console.log(err);
@@ -29,7 +34,6 @@ const LoginForm = () => {
   };
   return (
     <form onSubmit={handleLogin} className="bg-white mt-10 px-[100px] pb-[40px]">
-      <h3 className="text-[red]">{error.message}</h3>
       <h1 className="text-[#7E370C] font-bold text-2xl mb-1">
         Selamat Datang!
       </h1>
@@ -67,6 +71,7 @@ const LoginForm = () => {
           />
         </div>
       </div>
+      <h3 className="text-[red] text-[10px] mt-2 font-bold">{error.message}</h3>
       <div className="text-[12px] my-[20px] float-right w-full font-semibold text-[#7E370C]">
         <input type="checkbox" className="align-middle mr-2" />
         Ingatkan saya
