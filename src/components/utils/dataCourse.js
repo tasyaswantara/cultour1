@@ -27,25 +27,25 @@ const courseDataDaerah = [
 
 const courseDataTarian = [
     {
-      id: 1,
+      id: 5,
       title: "Reog Ponorogo",
       description:
         "Benteng Rotterdam adalah sebuah benteng yang terletak di kota Makassar. Benteng ini memiliki sejarah panjang sebagai tempat strategis dalam perjalanan perdagangan dan kekuasaan di wilayah timur Indonesia.",
     },
     {
-      id: 2,
+      id: 6,
       title: "Tari Saman",
       description:
         "Dalam kursus ini, Anda akan mempelajari sejarah dan arsitektur Candi Borobudur, termasuk pengaruh Hindu dan Buddha yang tercermin dalam desainnya.",
     },
     {
-      id: 3,
+      id: 7,
       title: "Tari Kuda Lumping",
       description:
         "Pura Ulun Danu adalah salah satu tempat suci yang terletak di Bali, Indonesia. Pura ini memiliki makna dan nilai budaya yang kaya dan sangat penting bagi masyarakat Bali.",
     },
     {
-      id: 4,
+      id: 8,
       title: "Tari Kecak",
       description:
         "Museum Lubang Buaya merupakan sebuah tempat bersejarah yang terletak di Jakarta, Indonesia. Tempat ini terkenal sebagai lokasi pengasingan dan eksekusi enam jenderal pada era Orde Baru.",
@@ -53,25 +53,25 @@ const courseDataTarian = [
   ];
   const courseDataBudaya = [
     {
-      id: 1,
+      id: 9,
       title: "Budaya Suku Bali",
       description:
         "Benteng Rotterdam adalah sebuah benteng yang terletak di kota Makassar. Benteng ini memiliki sejarah panjang sebagai tempat strategis dalam perjalanan perdagangan dan kekuasaan di wilayah timur Indonesia.",
     },
     {
-      id: 2,
+      id: 10,
       title: "Budaya Suku Nias",
       description:
         "Dalam kursus ini, Anda akan mempelajari sejarah dan arsitektur Candi Borobudur, termasuk pengaruh Hindu dan Buddha yang tercermin dalam desainnya.",
     },
     {
-      id: 3,
+      id: 11,
       title: "Budaya Suku Betawi",
       description:
         "Pura Ulun Danu adalah salah satu tempat suci yang terletak di Bali, Indonesia. Pura ini memiliki makna dan nilai budaya yang kaya dan sangat penting bagi masyarakat Bali.",
     },
     {
-      id: 4,
+      id: 12,
       title: "Budaya Suku Baduy",
       description:
         "Museum Lubang Buaya merupakan sebuah tempat bersejarah yang terletak di Jakarta, Indonesia. Tempat ini terkenal sebagai lokasi pengasingan dan eksekusi enam jenderal pada era Orde Baru.",

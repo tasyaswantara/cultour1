@@ -245,7 +245,7 @@ const Course = () => {
         <div className="mb-[50px] w-full h-[230px] px-5 py-2  flex">         
          
         {
-          courseDataDaerah.map((dataBahasa) => {
+          courseDataBahasa.map((dataBahasa) => {
             return(
               <div className="h-[200px] w-[300px] bg-white my-auto rounded-2xl mx-3">
             <div className="h-[50%] bg-gradient-to-b from-[#ffce45] rounded-t-2xl w-full">

@@ -1,4 +1,4 @@
-const dataStatistik = [
+const dataStatistik1 = [
     {
       id: 1,
       jumlah: "12rb+",
@@ -19,7 +19,7 @@ const dataStatistik = [
       },
     
   ];
-  const ourCourse = [
+  const ourCourse1 = [
     {
       id: 1,
       judul: "Daerah",
@@ -46,5 +46,5 @@ const dataStatistik = [
       },
     
   ];
-  export default {dataStatistik,ourCourse}
+  export {dataStatistik1,ourCourse1}
   

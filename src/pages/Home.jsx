@@ -2,9 +2,8 @@ import AppLayout from "../components/partials/applayout/AppLayout";
 import styled from "styled-components";
 import Batik from "../assets/icons/batik.png";
 import Orang1 from "../assets/images/fix1.png";
-import Budies from "../assets/icons/Buddies.png"
-import DataStatistik,{OurCourse, FormSearch} from "../components/DataHome";
-
+import Budies from "../assets/icons/Buddies.png";
+import { dataStatistik1, ourCourse1 } from "../components/utils/dataHome";
 
 const Home = () => {
   const Konten = styled.div`
@@ -41,16 +40,16 @@ const Home = () => {
     margin: 80px 0;
   `;
   const KontainerPutih = styled.div`
-    border:2px solid #7E370C;
-    background-color:white;
-    margin:auto;
+    border: 2px solid #7e370c;
+    background-color: white;
+    margin: auto;
     height: 300px;
     width: 1000px;
-    display:flex;
-    border-radius:20px;
-    position:absolute;
+    display: flex;
+    border-radius: 20px;
+    position: absolute;
     @media only screen and (max-width: 900px) {
-      width:100%;
+      width: 100%;
     }
   `;
   return (
@@ -71,7 +70,22 @@ const Home = () => {
               dan pelajari agar kita bisa berpartisipasi dalam melestastarikan
               budaya Indonesia
             </p>
-            <FormSearch />
+            <form className="flex items-center mt-5">
+              <div className="relative w-[300px] pl-14">
+                <input
+                  type="text"
+                  className="bg-gray-50 border border-gray-300 text-[#7E370C] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-4 p-2.5 "
+                  placeholder="Cari course disini..."
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="inline-flex items-center py-2.5 text-[#7E370C] px-3 ml-2 text-sm font-medium bg-[#FFCE45] rounded-lg border border-[#FFCE45] hover:bg-[#7E370C] hover:text-white focus:ring-4 focus:outline-none focus:ring-[#FFCE45]"
+              >
+                Mulai
+              </button>
+            </form>
           </div>
           <img
             className="absolute w-[220px] mb-[50px] ml-[510px] "
@@ -82,16 +96,22 @@ const Home = () => {
         </Konten>
       </section>
       <section>
-        
-        <img className="absolute w-[15%] ml-[250px] -mt-[50px] hidden xl:flex" src={Budies} alt="Buddies"/>      
-        
+        <img
+          className="absolute w-[15%] ml-[250px] -mt-[50px] hidden xl:flex"
+          src={Budies}
+          alt="Buddies"
+        />
+
         <div className="bg-[#FFCE45] w-[50%] h-[120px] mx-auto mt-24 rounded-[20px] min-w-[600px]">
-        <h3 className="font-semibold text-[25px] mx-7 pl-[100px] pt-2 text-black">
-              Taukah Kamu?
-            </h3>
-            <p className="text-[10px] mx-7 pl-[100px] font-bold text-[#7E370C]">
-            Upacara adat Tabuik di Pariaman, Sumatera Barat, yang dilakukan sebagai penghormatan terhadap cucu Nabi Muhammad, Husain. Upacara ini melibatkan prosesi pemikulan Tabuik, yaitu patung kayu berbentuk kuburan yang diarak menuju laut dan dibakar di pantai.
-            </p>
+          <h3 className="font-semibold text-[25px] mx-7 pl-[100px] pt-2 text-black">
+            Taukah Kamu?
+          </h3>
+          <p className="text-[10px] mx-7 pl-[100px] font-bold text-[#7E370C]">
+            Upacara adat Tabuik di Pariaman, Sumatera Barat, yang dilakukan
+            sebagai penghormatan terhadap cucu Nabi Muhammad, Husain. Upacara
+            ini melibatkan prosesi pemikulan Tabuik, yaitu patung kayu berbentuk
+            kuburan yang diarak menuju laut dan dibakar di pantai.
+          </p>
         </div>
       </section>
       <section>
@@ -113,13 +133,13 @@ const Home = () => {
               istiadat, dan banyak lagi. Anda akan diperkenalkan dengan berbagai
               budaya yang berbeda, dan mendapatkan pemahaman yang lebih dalam
               tentang bagaimana budaya memengaruhi kehidupan sehari-hari kita.
-              <br /> <br /> 
-              Kursus ini dilengkapi dengan video, artikel, dan
-              kuis yang menarik, serta bimbingan ahli dan forum diskusi untuk
+              <br /> <br />
+              Kursus ini dilengkapi dengan video, artikel, dan kuis yang
+              menarik, serta bimbingan ahli dan forum diskusi untuk
               mendiskusikan topik budaya yang menarik hati Anda. Anda dapat
               memilih untuk mempelajari kursus ini secara mandiri, atau
               bergabung dengan kelompok diskusi untuk belajar bersama dengan
-              orang lain yang memiliki minat yang sama. 
+              orang lain yang memiliki minat yang sama.
               <br /> <br />
               Jadi, jangan ragu untuk bergabung dengan kami di Virtual Course
               tentang Budaya, dan mari kita mulai petualangan belajar yang
@@ -127,20 +147,44 @@ const Home = () => {
             </p>
           </div>
         </Konten2>
-        <DataStatistik/>
-
+        <div className="grid-cols-3 gap-4 p-[10px] flex justify-center bg-white">
+          {dataStatistik1.map((datastas) => {
+            return (
+              <div className="w-[120px] h-[100px] mx-[100px] ">
+                <div className="w-[100%] h-[60px] text-[30px] text-center font-bold">
+                  {datastas.jumlah}
+                </div>
+                <div className="w-[100%] h-[40px] text-s text-center font-bold">
+                  {datastas.kategori}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </section>
       <section>
         <JudulSection>Our Course</JudulSection>
-        <div className="absolute m-auto w-[100%] h-[300px] min-w-[900px]">
-          
-        </div>        
+        <div className="absolute m-auto w-[100%] h-[300px] min-w-[900px]"></div>
         <div className="bg-[#7E370C] h-[500px] px-[130px] py-[100px]">
-        <KontainerPutih>
-            <OurCourse/>
+          <KontainerPutih>
+            {ourCourse1.map((datacourse) => {
+            return (
+              <div className="h-[100%] w-[300px] bg-white rounded-[20px] py-[40px] px-[20px] hover:bg-[#FFCE45] hover:scale-110 hover:duration-1000 hover:shadow-[8px_8px_4px_rgb(0,0,0,0.25)]">
+        <div className="w-[100%] h-[40px] text-[25px] text-center font-semibold text-[#7E370C]">
+          {datacourse.judul}
+        </div>
+        <div className="w-[100%] h-[120px] text-xs text-center font-medium text-[#7E370C] pt-[20px]">
+          {datacourse.deskripsi}
+        </div>
+        <div className="w-[120px] h-[25px] mt-[20px] p-[3px] m-auto rounded-full text-xs text-center text-[#7E370C] font-semibold bg-[#FFCE45] hover:bg-[#7E370C] hover:text-white hover:duration-300 cursor-pointer">
+          Read more
+        </div>
+      </div>
+            );
+          })}
           </KontainerPutih>
         </div>
-        
+
         <img src={Batik} alt="batik" className="bg-[#7E370C] w-[100%]"></img>
       </section>
     </AppLayout>
