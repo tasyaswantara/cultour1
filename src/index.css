@@ -5,3 +5,20 @@
 body{
     margin:0;
 }
+nav a.active{
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.clicked{
+    border-bottom: 3px solid black;
+}
+.aktif{
+    color: #ffffff;
+    background-color: #7E370C;    
+    border-radius: 10px;
+    width: 80%;
+    height: 100px;
+    margin:auto;
+   
+}

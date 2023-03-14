@@ -79,25 +79,25 @@ const courseDataTarian = [
   ];
   const courseDataBahasa = [
     {
-      id: 1,
+      id: 13,
       title: "Bahasa Madura",
       description:
         "Benteng Rotterdam adalah sebuah benteng yang terletak di kota Makassar. Benteng ini memiliki sejarah panjang sebagai tempat strategis dalam perjalanan perdagangan dan kekuasaan di wilayah timur Indonesia.",
     },
     {
-      id: 2,
+      id: 14,
       title: "Bahasa Dayak",
       description:
         "Dalam kursus ini, Anda akan mempelajari sejarah dan arsitektur Candi Borobudur, termasuk pengaruh Hindu dan Buddha yang tercermin dalam desainnya.",
     },
     {
-      id: 3,
+      id: 15,
       title: "Bahasa Batak",
       description:
         "Pura Ulun Danu adalah salah satu tempat suci yang terletak di Bali, Indonesia. Pura ini memiliki makna dan nilai budaya yang kaya dan sangat penting bagi masyarakat Bali.",
     },
     {
-      id: 4,
+      id: 16,
       title: "Bahasa Rote",
       description:
         "Museum Lubang Buaya merupakan sebuah tempat bersejarah yang terletak di Jakarta, Indonesia. Tempat ini terkenal sebagai lokasi pengasingan dan eksekusi enam jenderal pada era Orde Baru.",

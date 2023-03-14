@@ -9,6 +9,8 @@ import Signup from './pages/Signup';
 import NotFound from './pages/404';
 import Course from './pages/Course';
 import Berlangganan from './pages/Berlangganan';
+import DeskripsiCourse from './pages/DeskripsiCourse';
+import DetailCourse from './pages/DetailCourse';
 import ProtectedRoute from './components/Routes/ProtectedRoute';
 import AuthRoute from './components/Routes/AuthRoute';
 import { AuthContext } from './config/Auth';
@@ -35,8 +37,11 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/course' element={<Course />} />
         <Route path='/berlangganan' element={<Berlangganan />} />
+        <Route path='/deskripsi/:idcourse' element={<DeskripsiCourse/>}/>
+        <Route path='/deskripsi/detailcourse' element={<DetailCourse/>}/>
         </Route>
         <Route element={<AuthRoute/>}>
+        <Route path='/course/:idcourse'/>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup/>} />
         </Route>

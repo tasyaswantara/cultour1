@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import styled from "styled-components";
 import { useAuth } from "../../../config/Auth";
+import { NavLink } from "react-router-dom";
 
 
 const Span = styled.span`
@@ -44,24 +45,21 @@ const TopAppBar = () => {
         >
           <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
           <li>
-              <a
-                href="/berlangganan"
-                className="block py-2 pl-3 pr-4  text-[#7E370C] rounded-xl hover:bg-[#FFCE45] hover:duration-700 "
-              >
-                Berlangganan
-              </a>
+            <NavLink to="/berlangganan" className="block py-2 pl-3 pr-4  text-[#7E370C] rounded-xl hover:bg-[#FFCE45] hover:duration-700" activeclassname="active">
+              Berlangganan            
+            </NavLink>
             </li>
             
             {window.localStorage.getItem('token')?
             (
               <>
               <li>
-              <a
-                href="/course"
+              <NavLink
+                to="/course" activeclassname="active"
                 className="block py-2 pl-3 pr-4 text-[#7E370C] rounded-xl hover:bg-[#FFCE45] hover:duration-700"
               >
                 Course
-              </a>
+              </NavLink>
             </li>
               <li>
               <a
