@@ -15,8 +15,9 @@ const DetailCourse= ()=>{
   };
     return(
         <AppLayout>
-            <div className="w-full min-h-[80vh] flex">
-                <div className="h-full w-[30%] mx-[50px]">
+            <div className="w-full min-h-[85vh] flex">
+            <div className="h-full w-[30%] mx-[50px]"></div>
+                <div className="h-full w-[30%] mx-[50px] fixed">
                 <div
                 className={value == "langkah1" ? "aktif" : ""}
                 onClick={(e) => {
@@ -94,13 +95,16 @@ const DetailCourse= ()=>{
                     </div>                
                     </div>
                 </div>
-                <div className="bg-gradient-to-b from-[#7E370C] via-[#fceae0] to-[#7E370C] w-[2px] h-[75vh] my-auto"></div>
+                {value =="kuis" ? (
+                   <div className="bg-gradient-to-b from-[#7E370C] via-[#fceae0] to-[#7E370C] w-[2px] h-[130vh] my-auto "></div>
+                ):( <div className="bg-gradient-to-b from-[#7E370C] via-[#fceae0] to-[#7E370C] w-[2px] h-[75vh] my-auto "></div>)}
+             
                 
                 <div className="w-[60%] h-full mx-[10px] py-[20px]">
                 {value == "langkah1" ? (
                     <div className="w-[80%] h-[450px] m-auto p-0">
-                                                  
-                            {/* <iframe className="w-full h-full aspect-video md:aspect-square" src="https://www.youtube.com/embed/W7QL7MBC2dM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe> */}
+                       
+                            <iframe className="w-full h-full aspect-video md:aspect-square" src="https://www.youtube.com/embed/W7QL7MBC2dM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 
                     </div>
                     ) : null}
@@ -113,10 +117,24 @@ const DetailCourse= ()=>{
                             return(
                             <>
                                 <div className="w-full h-30px my-[5px]">
-                                <h3 className="text-[16px] text-left float-left w-[80%]">{pertanyaan.pertanyaan}</h3>
+                                <h3 className="text-[16px] text-left w-[80%]">{pertanyaan.pertanyaan}</h3>
                                 <div className="text-[12px] font-semibold float-right block bg-white w-[60px] text-center rounded-[5px] border-[1px] my-2 border-[#7E370C]">{pertanyaan.poin} poin</div>
                                 </div>
-                                <input type="text" placeholder="Masukkan jawabanmu disini..." className="rounded-[5px] w-full h-[35px] pl-4 border-[#7E370C] border-[1px] text-[15px] text-[#7E370C] placeholder-[#7E370C] placeholder-opacity-20 mb-[5px]"></input>
+                                <label className="block">
+                                <input name={pertanyaan.id} type="radio" className="rounded-[5px] w-[unset] h-[10px] border-[#7E370C] border-[1px] text-[15px] text-[#7E370C] align-middle"/> Amsterdam
+                                </label>
+                                <label className="block">
+                                <input name={pertanyaan.id} type="radio" className="rounded-[5px] w-[unset] h-[10px] border-[#7E370C] border-[1px] text-[15px] text-[#7E370C] align-middle"/> Jakarta
+                                </label>
+                                <label className="block">
+                                <input name={pertanyaan.id} type="radio" className="rounded-[5px] w-[unset] h-[10px] border-[#7E370C] border-[1px] text-[15px] text-[#7E370C] align-middle"/> Medan
+                                </label>
+                                <label className="block">
+                                <input name={pertanyaan.id} type="radio" className="rounded-[5px] w-[unset] h-[10px] border-[#7E370C] border-[1px] text-[15px] text-[#7E370C] align-middle"/> Yuhu
+                                </label>
+                                
+                                
+                                
                                 </>
                             
                         );
@@ -134,7 +152,7 @@ const DetailCourse= ()=>{
                 </div>
                 
             </div>
-            <div className="h-[38px] w-full">
+            <div className="h-[50px] w-full">
       <img src={Batik} className="w-full h-full"></img>
       </div>
         </AppLayout>

@@ -1,10 +1,16 @@
 import AppLayout from "../components/partials/applayout/AppLayout";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 import BCA from "../assets/icons/bca.png"
 import Mandiri from "../assets/icons/mandiri.png"
 import Bri from "../assets/icons/bri.png"
 
+
 const DetailPayment= ()=>{
+    const [value, setValue] = useState("bca");
+  const handleNav = (val) => {
+    setValue(val);
+  };
     return(
         <AppLayout>
              <div className=" w-[700px] h-[420px] m-auto mt-[50px] rounded-xl border-[2px] border-[grey]">
@@ -13,28 +19,77 @@ const DetailPayment= ()=>{
                 </div>
                 <div className="w-full h-[1px] bg-[grey]"></div>
                 <div className="w-full  h-[150px] p-[10px] flex">
-                    <div className="w-[200px] h-[100px] border-[1px] border-[gray] py-[15px] rounded-xl mx-[20px]">
+                <NavLink
+              className={value == "bca" ? "bayar" : ""}
+              onClick={(e) => {
+                handleNav("bca");
+              }}
+            >
+              <div className="w-[200px] h-[100px] border-[1px] border-[gray] py-[15px] rounded-xl mx-[12px]">
                         <img src={BCA} className="w-[200px] my-auto"/>
                     </div>
-                    <div className="w-[200px] h-[100px] border-[1px] border-[gray] py-[15px] px-[10px] rounded-xl mx-[20px]">
+            </NavLink>
+            <NavLink
+              className={value == "mandiri" ? "bayar" : ""}
+              onClick={(e) => {
+                handleNav("mandiri");
+              }}
+            >
+                    <div className="w-[200px] h-[100px] border-[1px] border-[gray] py-[15px] px-[10px] rounded-xl mx-[12px]">
                         <img src={Mandiri} className="w-[180px] my-auto"/>
                     </div>
-                    <div className="w-[200px] h-[100px] border-[1px] border-[gray] py-0 rounded-xl mx-[20px]">
+                    </NavLink>
+                    <NavLink
+              className={value == "bri" ? "bayar" : ""}
+              onClick={(e) => {
+                handleNav("bri");
+              }}
+            >
+                    <div className="w-[200px] h-[100px] border-[1px] border-[gray] py-0 rounded-xl mx-[12px]">
                         <img src={Bri} className="w-[180px] my-auto"/>
                     </div>
+                    </NavLink>
                 </div>
+                
                 <form className="px-[30px]">
-                    Upload Bukti Transfer disini:
-                    <h3 className="font-normal text-[15px] float-right">Rp 4.500.000</h3>
-                    <input type="file" className="w-full h-[100px] my-[20px]"/>
+                    <h3 className="font-semibold text-[25px] mt-3 float-right">Rp 4.500.000</h3>
+                    {value == "bca" ? (
+                        <>
+                    <h3 className="text-[15px] font-semibold">Virtual Account</h3>
+                    <p>11233422123123345666</p>
+                    <h3 className="text-[15px] font-semibold">Rekening</h3>
+                    <p>08277789354353</p>
+                    </>
+                    ):null}
+                    {value == "mandiri" ? (
+                        <>
+                    <h3 className="text-[15px] font-semibold">Virtual Account</h3>
+                    <p>112387264387264864827</p>
+                    <h3 className="text-[15px] font-semibold">Rekening</h3>
+                    <p>38447847997978978979</p>
+                    </>
+                    ):null}
+                    {value == "bri" ? (
+                        <>
+                    <h3 className="text-[15px] font-semibold">Virtual Account</h3>
+                    <p>1147987968768768768</p>
+                    <h3 className="text-[15px] font-semibold">Rekening</h3>
+                    <p>3786487624878624864</p>
+                    </>
+                    ):null}
+                    <div className="w-full h-[1px] bg-[grey] my-[10px]"></div>
                     <NavLink
         to="/home"
-        className="block w-[60px] float-right bg-[#7E370C] mt-2 py-2 px-[12px] rounded-[5px] text-white font-semibold text-[12px]"
+        className="w-[150px] h-[40px] float-right bg-[#7E370C] mt-1 py-3 px-[12px] rounded-[5px] text-white text-center font-semibold text-[12px]"
       >
         Selesai
       </NavLink>
+                    <h3 className="text-[15px] font-semibold mt-[20px]"> Upload Bukti Transfer disini:</h3>                 
+                    <input type="file" className="float-left w-full h-[100px] my-[10px]"/>
+                    
                 </form>
-                <div className="w-full h-[1px] bg-[grey]"></div>
+                
+                
                 
                 
                  

@@ -74,7 +74,7 @@ const DeskripsiCourse = () => {
         <div className="w-[80%] h-[220px] m-auto flex">
           <div className="w-[280px] h-[180px] my-auto mx-[10px] rounded-2xl">
             <img
-              src={Coba}
+              src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Saman_dance.jpg"
               alt="gambar budaya"
               className="w-full h-full rounded-2xl"
             />
@@ -103,14 +103,14 @@ const DeskripsiCourse = () => {
             </div>
           </div>
           <div className="border-[grey] w-[200px] h-[120px] my-auto mx-[50px] border-[1px] px-[10px] py-[20px] rounded-2xl">
-          {/* <NavLink to="/deskripsi/detailcourse"> */}
+          <NavLink to="/deskripsi/detailcourse">
             <div
               onClick={handleAPI}
               className="w-full h-[30px] border-[1px] rounded-[10px] bg-[#7E370C] text-white px-[58px] cursor-pointer"
             >
               Mulai
             </div>
-            {/* </NavLink> */}
+            </NavLink>
             <div className="w-full bg-[grey] h-[1px] my-[10px]"></div>
             <div className="w-full h-[30px] border-[1px] border-[grey] rounded-[10px] bg-white pl-[25px]">
               Informasi Kelas

@@ -13,7 +13,7 @@ const Profil= ()=>{
                 </div>
                 
                 <div className="w-[60%] h-[30px] mx-auto text-[16px] my-[10px] pl-[20px] flex">
-                    <div className="">Username :</div>
+                    <div className="mr-[10px]">Email :</div>
                     <div className="ml-[15px]">tasyaswantara@gmail.com</div>
                 </div>
             </div>

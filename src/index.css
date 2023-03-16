@@ -23,3 +23,7 @@ nav a.active{
     margin:auto;
    
 }
+.bayar{
+    scale: 1.1;
+    transition-duration: 750ms;
+}
