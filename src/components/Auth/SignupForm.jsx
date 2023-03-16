@@ -7,8 +7,8 @@ const SignupForm = () => {
   const [name,setName]=useState('')
   const handleSignup =(event)=>{
     event.preventDefault()
-    axios.post('https://tweet-api.up.railway.app/api/v1/auth/register',{
-      
+    axios.post('https://anugrah.aenzt.tech/auth/register',{
+      username: name,
       email: email,
       password: password
     })

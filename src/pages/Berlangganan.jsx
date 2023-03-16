@@ -1,5 +1,6 @@
 import TopAppBar from "../components/partials/appbar/TopAppBar";
 import Batik from "../assets/icons/batik.png";
+import { NavLink } from "react-router-dom";
 
 const Berlangganan = () => {
   return (
@@ -21,9 +22,11 @@ const Berlangganan = () => {
             <div className="w-[100%] h-[120px] text-xs text-center font-medium text-white pt-[50px]">
               Langganan selama 1 bulan (30 hari)
             </div>
+            <NavLink to="/payment">
             <div className="w-[120px] h-[30px] mt-[60px] p-[3px] pt-[5px] m-auto rounded-[10px] text-xs text-center text-[#7E370C] font-semibold bg-[#FFCE45] hover:bg-[#7E370C] hover:text-white hover:duration-300 cursor-pointer">
               Read more
             </div>
+            </NavLink>
           </div>
         
           <div className="h-[100%] w-[250px] bg-[#B05E27] rounded-[20px] mx-[20px] py-[40px] px-[20px] shadow-[8px_8px_4px_rgb(0,0,0,0.25)]">
@@ -33,9 +36,11 @@ const Berlangganan = () => {
             <div className="w-[100%] h-[120px] text-xs text-center font-medium text-white pt-[50px]">
               Langganan selama 3 bulan (90 hari)
             </div>
+            <NavLink to="/payment">
             <div className="w-[120px] h-[30px] mt-[60px] p-[3px] pt-[5px] m-auto rounded-[10px] text-xs text-center text-[#7E370C] font-semibold bg-[#FFCE45] hover:bg-[#7E370C] hover:text-white hover:duration-300 cursor-pointer">
               Read more
             </div>
+            </NavLink>
           </div>
 
           <div className="h-[100%] w-[250px] bg-[#B05E27] rounded-[20px] mx-[20px] py-[40px] px-[20px] shadow-[8px_8px_4px_rgb(0,0,0,0.25)]">
@@ -45,9 +50,11 @@ const Berlangganan = () => {
             <div className="w-[100%] h-[120px] text-xs text-center font-medium text-white pt-[50px]">
               Langganan selama 6 bulan (180 hari)
             </div>
+            <NavLink to="/payment">
             <div className="w-[120px] h-[30px] mt-[60px] p-[3px] pt-[5px] m-auto rounded-[10px] text-xs text-center text-[#7E370C] font-semibold bg-[#FFCE45] hover:bg-[#7E370C] hover:text-white hover:duration-300 cursor-pointer">
               Read more
             </div>
+            </NavLink>
           </div>
 
           <div className="h-[100%] w-[250px] bg-[#B05E27] rounded-[20px] mx-[20px] py-[40px] px-[20px] shadow-[8px_8px_4px_rgb(0,0,0,0.25)]">

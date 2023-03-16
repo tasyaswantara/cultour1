@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { useAuth } from "../../../config/Auth";
 import { NavLink } from "react-router-dom";
+import User from "../../../assets/icons/user.png"
 
 
 const Span = styled.span`
@@ -61,13 +62,22 @@ const TopAppBar = () => {
                 Course
               </NavLink>
             </li>
-              <li>
+              
+            <li>
               <a
                 onClick={handleLogout}
                 className="block py-2 pl-3 pr-4 text-[#7E370C] rounded-xl hover:bg-[#FFCE45] cursor-pointer hover:duration-700"
               >
                 Logout
               </a>
+            </li>
+            <li>
+              <NavLink
+                to="/profil" activeclassname="active"
+                className="block py-2 pl-3 pr-4 text-[#7E370C] rounded-xl hover:bg-[#FFCE45] hover:duration-700"
+              >
+                <img src={User} className="w-[20px] h-[20px]"/>
+              </NavLink>
             </li>
             </>
             ):(

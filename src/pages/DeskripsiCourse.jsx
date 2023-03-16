@@ -5,15 +5,71 @@ import Coba from "../assets/images/indo.jpg";
 import Bintang from "../assets/icons/star.png";
 import Jam from "../assets/icons/jam.png";
 import Group from "../assets/icons/peoplegrup.png";
-
+import { Testimoni } from "../components/utils/Testimoni";
+import axios from "axios";
 
 const DeskripsiCourse = () => {
- const {idcourse}= useParams();
+  const [deskripsi, setDeskripsi] = useState({
+    name: "tes",
+    category: "tes",
+    province: "tes",
+  });
+  // const handleAPI = async () => {
+  //   try {
+  //     const response = await axios
+  //       .get("https://anugrah.aenzt.tech/course/view")
+  //       .then((res) => {
+  //         setDeskripsi({
+  //           name: res.data.data.name,
+  //           category: res.data.data.category,
+  //           province: res.data.data.province,
+  //           city:res.data.data.city,
+  //           article:res.data.data.article,
+  //           picture:res.data.data.picture,
+  //           video:res.data.data.video,
+  //           rating:res.data.data.rating,
+  //           createAt:res.data.data.createAt,
+  //           updateAt:res.data.data.updateAt
+  //         });
+  //         console.log("sukses panggil api");
+  //       });
+  //   } catch (error) {
+  //     console.log("errornya:" + error.message);
+  //   }
+  // };
+  const handleAPI = () => {    
+   
+    console.log("disubmit")
+    axios.get("https://anugrah.aenzt.tech/auth/login",{
+      name: "Tari Saman"
+    }
+      
+    )
+      .then((response) => {
+        console.log(response);
+        setDeskripsi({
+          name: res.data.data.name,
+          category: res.data.data.category,
+          province: res.data.data.province
+          
+        });
+      })
+      .catch((err) => {
+        console.log("errornya:" + err.message);
+        
+      });
+  };
+
+  // useEffect(() => {
+  //   handleAPI();
+  // }, []);
+
+  const { idcourse } = useParams();
   const [value, setValue] = useState("deskripsi");
   const handleNav = (val) => {
     setValue(val);
   };
-  
+
   return (
     <AppLayout>
       <div className="w-full h-[600px] mt-[80px]">
@@ -49,9 +105,14 @@ const DeskripsiCourse = () => {
             </div>
           </div>
           <div className="border-[grey] w-[200px] h-[120px] my-auto mx-[50px] border-[1px] px-[10px] py-[20px] rounded-2xl">
-            <div className="w-full h-[30px] border-[1px] rounded-[10px] bg-[#7E370C] text-white px-[58px]">
+          <NavLink to="/deskripsi/detailcourse">
+            <div
+              onClick={handleAPI}
+              className="w-full h-[30px] border-[1px] rounded-[10px] bg-[#7E370C] text-white px-[58px]"
+            >
               Mulai
             </div>
+            </NavLink>
             <div className="w-full bg-[grey] h-[1px] my-[10px]"></div>
             <div className="w-full h-[30px] border-[1px] border-[grey] rounded-[10px] bg-white pl-[25px]">
               Informasi Kelas
@@ -112,64 +173,105 @@ const DeskripsiCourse = () => {
       <div className="w-full h-[80px] my-[5px]">
         <div className=" w-[80%] h-full m-auto flex px-[10px]">
           <div className="my-auto w-[100px] font-semibold">
-          <NavLink
-                className={value == "deskripsi" ? "clicked" : ""}
-                onClick={(e) => {
-                  handleNav("deskripsi");
-                }}
-              >
-                Deskripsi
-              </NavLink>
+            <NavLink
+              className={value == "deskripsi" ? "clicked" : ""}
+              onClick={(e) => {
+                handleNav("deskripsi");
+              }}
+            >
+              Deskripsi
+            </NavLink>
           </div>
           <div className="my-auto w-[100px] font-semibold">
-          <NavLink
-                className={value == "testimoni" ? "clicked" : ""}
-                onClick={(e) => {
-                  handleNav("testimoni");
-                }}
-              >
-                Testimoni
-              </NavLink>
+            <NavLink
+              className={value == "testimoni" ? "clicked" : ""}
+              onClick={(e) => {
+                handleNav("testimoni");
+              }}
+            >
+              Testimoni
+            </NavLink>
           </div>
         </div>
       </div>
       <div className="w-full h-[1px] bg-[grey] my-[5px]"></div>
       <div className="w-full h-[600px] py-[20px]">
         <div className="w-[80%] h-[80%] p-[10px] m-auto">
-        {value == "deskripsi" ? (
-          <>
-          <h3 className="font-semibold text-[18px] my-[20px]">Deskripsi</h3>
-          <p className="text-[15px] font-light my-[10px]">
-            Selamat datang di kelas video tentang Benteng Rotterdam! Kelas ini
-            akan membawa Anda pada sebuah petualangan sejarah yang mengesankan.
-            Benteng Rotterdam, atau dalam bahasa Belanda disebut Fort Rotterdam,
-            adalah sebuah benteng peninggalan kolonial Belanda yang terletak di
-            kota Makassar, Sulawesi Selatan, Indonesia. Dalam kelas ini, Anda
-            akan diajak untuk menjelajahi sejarah Benteng Rotterdam dan memahami
-            peran pentingnya dalam perkembangan Kota Makassar dan wilayah
-            sekitarnya. Anda akan mempelajari sejarah dan arsitektur benteng,
-            termasuk bentuk pertahanannya dan penggunaannya selama masa kolonial
-            Belanda. <br /> <br />Selain itu, Anda juga akan mengenal tokoh-tokoh penting
-            dalam sejarah Benteng Rotterdam dan belajar tentang peran mereka
-            dalam menjaga keamanan dan perdamaian di wilayah sekitarnya. <br /> <br />Kelas
-            video ini dilengkapi dengan gambar, video, dan narasi yang menarik
-            sehingga Anda dapat mempelajari sejarah Benteng Rotterdam dengan
-            mudah dan menyenangkan. Selain itu, kelas ini juga dilengkapi dengan
-            tanya jawab interaktif yang dapat membantu Anda memperdalam
-            pemahaman Anda tentang materi yang telah dipelajari. <br /> <br />Setelah
-            menyelesaikan kelas video ini, Anda akan memiliki pemahaman yang
-            lebih baik tentang sejarah dan arsitektur Benteng Rotterdam dan
-            memahami betapa pentingnya benteng ini dalam sejarah Indonesia. Anda
-            juga dapat mengunjungi Benteng Rotterdam secara langsung dan
-            mengaplikasikan pengetahuan yang telah dipelajari dalam kelas ini.<br /> <br />
-            Gabunglah dengan kelas video ini dan temukan keindahan sejarah
-            Benteng Rotterdam yang mengesankan!
-          </p>
-          </>
-           ) : null}
-           {value == "testimoni" ? (
-             <h3 className="font-semibold text-[18px] my-[20px]">Testimoni</h3>
-           ): null}
+          {value == "deskripsi" ? (
+            <>
+              <h3 className="font-semibold text-[18px] my-[20px]">Deskripsi</h3>
+              <p className="text-[15px] font-light my-[10px]">
+                Selamat datang di kelas video tentang Benteng Rotterdam! Kelas
+                ini akan membawa Anda pada sebuah petualangan sejarah yang
+                mengesankan. Benteng Rotterdam, atau dalam bahasa Belanda
+                disebut Fort Rotterdam, adalah sebuah benteng peninggalan
+                kolonial Belanda yang terletak di kota Makassar, Sulawesi
+                Selatan, Indonesia. Dalam kelas ini, Anda akan diajak untuk
+                menjelajahi sejarah Benteng Rotterdam dan memahami peran
+                pentingnya dalam perkembangan Kota Makassar dan wilayah
+                sekitarnya. Anda akan mempelajari sejarah dan arsitektur
+                benteng, termasuk bentuk pertahanannya dan penggunaannya selama
+                masa kolonial Belanda. <br /> <br />
+                Selain itu, Anda juga akan mengenal tokoh-tokoh penting dalam
+                sejarah Benteng Rotterdam dan belajar tentang peran mereka dalam
+                menjaga keamanan dan perdamaian di wilayah sekitarnya. <br />{" "}
+                <br />
+                Kelas video ini dilengkapi dengan gambar, video, dan narasi yang
+                menarik sehingga Anda dapat mempelajari sejarah Benteng
+                Rotterdam dengan mudah dan menyenangkan. Selain itu, kelas ini
+                juga dilengkapi dengan tanya jawab interaktif yang dapat
+                membantu Anda memperdalam pemahaman Anda tentang materi yang
+                telah dipelajari. <br /> <br />
+                Setelah menyelesaikan kelas video ini, Anda akan memiliki
+                pemahaman yang lebih baik tentang sejarah dan arsitektur Benteng
+                Rotterdam dan memahami betapa pentingnya benteng ini dalam
+                sejarah Indonesia. Anda juga dapat mengunjungi Benteng Rotterdam
+                secara langsung dan mengaplikasikan pengetahuan yang telah
+                dipelajari dalam kelas ini.
+                <br /> <br />
+                Gabunglah dengan kelas video ini dan temukan keindahan sejarah
+                Benteng Rotterdam yang mengesankan!
+              </p>
+            </>
+          ) : null}
+          {value == "testimoni" ? (
+            <>
+              <h3 className="font-semibold text-[18px] mt-[20px] text-center">
+                Testimoni dari Siswa
+              </h3>
+              <p className="text-center">
+                Sudah banyak siswa yang telah mengikuti course ini, coba
+                dengerin kata mereka!
+              </p>
+              <div className="w-[90%] h-[500px] m-auto mt-[10px] flex flex-row flex-wrap">
+                {Testimoni.map((testi) => {
+                  return (
+                    <div className="w-[405px] h-[200px] rounded-xl border-[2px]  m-[20px]">
+                      <div className="w-full h-[80px] flex">
+                        <div className="w-[50px] my-auto ml-[20px] bg-slate-500 rounded-full h-[50px]"></div>
+                        <div className="w-[70%] h-full ml-[10px] py-[20px]">
+                          <div className="text-[12px] font-semibold">
+                            {testi.username}
+                          </div>
+                          <p className="text-[10px] my-[2px]">{testi.paket}</p>
+                          <div className="w-full h-[20px] flex">
+                            <img src={Bintang} className="w-[13px] h-[13px]" />
+                            <img src={Bintang} className="w-[13px] h-[13px]" />
+                            <img src={Bintang} className="w-[13px] h-[13px]" />
+                            <img src={Bintang} className="w-[13px] h-[13px]" />
+                            <img src={Bintang} className="w-[13px] h-[13px]" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="px-[20px] py-[10px] text-[12px]">
+                        {testi.testi}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          ) : null}
         </div>
       </div>
     </AppLayout>

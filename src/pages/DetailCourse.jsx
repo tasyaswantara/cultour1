@@ -5,6 +5,8 @@ import Video from "../assets/video/contoh.mp4"
 import Batik from "../assets/icons/batik.png";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { Pertanyaan } from "../components/utils/Pertanyaan";
+
 
 const DetailCourse= ()=>{
     const [value, setValue] = useState("langkah1");
@@ -97,15 +99,37 @@ const DetailCourse= ()=>{
                 <div className="w-[60%] h-full mx-[10px] py-[20px]">
                 {value == "langkah1" ? (
                     <div className="w-[80%] h-[450px] m-auto p-0">
-                        <video controls className="w-full h-full">
-                            <source src={Video} type="video/mp4"/>
-                        </video>
+                                                  
+                            {/* <iframe className="w-full h-full aspect-video md:aspect-square" src="https://www.youtube.com/embed/W7QL7MBC2dM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe> */}
+
                     </div>
                     ) : null}
+                    
                     {value == "kuis" ? (
-                    <div className="w-[80%] h-[450px] m-auto p-0">
-                        <h3>KUUUUUUUUUUUUUIIIIIIIIIIssss</h3>
-                    </div>
+                        <>
+                        <div className="w-[95%] h-[450px] m-auto p-0">
+                        <form>
+                        {Pertanyaan.map((pertanyaan) => {
+                            return(
+                            <>
+                                <div className="w-full h-30px my-[5px]">
+                                <h3 className="text-[16px] text-left float-left w-[80%]">{pertanyaan.pertanyaan}</h3>
+                                <div className="text-[12px] font-semibold float-right block bg-white w-[60px] text-center rounded-[5px] border-[1px] my-2 border-[#7E370C]">{pertanyaan.poin} poin</div>
+                                </div>
+                                <input type="text" placeholder="Masukkan jawabanmu disini..." className="rounded-[5px] w-full h-[35px] pl-4 border-[#7E370C] border-[1px] text-[15px] text-[#7E370C] placeholder-[#7E370C] placeholder-opacity-20 mb-[5px]"></input>
+                                </>
+                            
+                        );
+                        })}
+                        <button
+        type="submit"
+        className="block w-[60px] float-right bg-[#7E370C] mt-2 py-2 rounded-[5px] text-white font-semibold text-[12px]"
+      >
+        Submit
+      </button>
+                            </form>
+                        </div>
+                    </>
                     ) : null}
                 </div>
                 

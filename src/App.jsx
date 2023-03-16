@@ -1,6 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react'
 import './App.css'
+import ProtectedRoute from './components/Routes/ProtectedRoute';
+import AuthRoute from './components/Routes/AuthRoute';
+import { AuthContext } from './config/Auth';
 
 // pages
 import Home from './pages/Home'
@@ -11,9 +14,10 @@ import Course from './pages/Course';
 import Berlangganan from './pages/Berlangganan';
 import DeskripsiCourse from './pages/DeskripsiCourse';
 import DetailCourse from './pages/DetailCourse';
-import ProtectedRoute from './components/Routes/ProtectedRoute';
-import AuthRoute from './components/Routes/AuthRoute';
-import { AuthContext } from './config/Auth';
+import Profil from './pages/Profil';
+import Payment from './pages/Payment';
+import DetailPayment from './pages/DetailPayment';
+
 
 
 
@@ -36,9 +40,13 @@ function App() {
         <Route element={<ProtectedRoute/>}>
         <Route path='/home' element={<Home />} />
         <Route path='/course' element={<Course />} />
-        <Route path='/berlangganan' element={<Berlangganan />} />
         <Route path='/deskripsi/:idcourse' element={<DeskripsiCourse/>}/>
         <Route path='/deskripsi/detailcourse' element={<DetailCourse/>}/>
+        <Route path='/berlangganan' element={<Berlangganan />} />
+        <Route path='/profil' element={<Profil />} />
+        <Route path='/payment' element={<Payment />} />
+        <Route path='/detailpayment' element={<DetailPayment />} />
+       
         </Route>
         <Route element={<AuthRoute/>}>
         <Route path='/course/:idcourse'/>

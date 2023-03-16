@@ -2,20 +2,26 @@ import axios from "axios";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Google from "../../assets/icons/Vector.png";
+import LoginPopup from "../partials/Popup/LoginPopup";
 
 const LoginForm = () => {
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
   const [success,setSuccess]=useState('')
+  const [showPopup, setShowPopup] = useState(false);
   const [token, setToken] = useState(localStorage.getItem("token"))
   const [error,setError]= useState({
     message: '',
     status: ''
   })
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
   const handleLogin = (event) => {    
     event.preventDefault()
     console.log("disubmit")
-    axios.post("https://tweet-api.up.railway.app/api/v1/auth/login",{
+    axios.post("https://anugrah.aenzt.tech/auth/login",{
       email: email,
       password: password
     }
@@ -23,9 +29,10 @@ const LoginForm = () => {
     )
       .then((response) => {
         console.log(response);
-        window.localStorage.setItem('token',response.data.token.token)
-        setToken(response.data.token.token)
+        window.localStorage.setItem('token',response.data.data)
+        setToken(response.data.data)
         setSuccess(response.data.message)
+        setShowPopup(true);
       })
       .catch((err) => {
         console.log(err);
@@ -41,14 +48,16 @@ const LoginForm = () => {
         Daftarkan akun kamu di <strong>Cultour</strong> untuk pengalaman yang
         menakjubkan!
       </p>
+      {showPopup && <LoginPopup handleClose={handleClosePopup} />}
       <div className="my-[30px]">
+       
         <span className="text-[10px] font-bold text-[#7E370C] mb-[50px]">
           Email
         </span>
         <div className="flex items-center border-[1.5px] border-[#7E370C] py-2 px-3 rounded-[5px]">
           <input
             className="pl-2 outline-none w-full border-none text-[12px] text-[#7E370C] placeholder-[#7E370C] placeholder-opacity-50"
-            type="email"
+            
             name="Email"
             onChange={(e)=>{setEmail(e.target.value)}}
             required
@@ -71,7 +80,14 @@ const LoginForm = () => {
           />
         </div>
       </div>
-      <h3 className="text-[red] text-[10px] mt-2 font-bold">{error.message}</h3>
+      {success === 'Login successful' ? (
+        
+        <h3 className="text-[blue] text-[10px] mt-2 font-bold">{success}</h3>
+      ):(
+        <h3 className="text-[red] text-[10px] mt-2 font-bold">{error.message}</h3>
+      )}
+      
+      
       <div className="text-[12px] my-[20px] float-right w-full font-semibold text-[#7E370C]">
         <input type="checkbox" className="align-middle mr-2" />
         Ingatkan saya
@@ -85,6 +101,7 @@ const LoginForm = () => {
       >
         Log in
       </button>
+      
       <div className="flex justify-center items-center py-2">
         <div className="bg-[#7E370C] w-[40%] h-[1px] opacity-50"></div>
         <div className="bg-white w-[40%] h-[18px] text-[10px] text-[#7E370C] opacity-50 text-center">
