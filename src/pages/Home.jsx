@@ -55,7 +55,7 @@ const Home = () => {
   return (
     <AppLayout>
       <section>
-        <div className="absolute xl:flex hidden shadow-[3px_3px_3px_rgb(0,0,0,0.60)] ml-[200px] mt-[150px] rounded-full h-24 w-24 bg-[#b05e27] "></div>
+        
 
         <GbrBatik src={Batik} alt="Batik" />
         <Konten className="min-w-min">

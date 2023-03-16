@@ -4,67 +4,65 @@ import { useState, useEffect } from "react";
 import Coba from "../assets/images/indo.jpg";
 import Bintang from "../assets/icons/star.png";
 import Jam from "../assets/icons/jam.png";
+import Chat from "../assets/icons/chat.png";
+import Youtube from "../assets/icons/youtube.png";
+import Sertif from "../assets/icons/badge.png";
 import Group from "../assets/icons/peoplegrup.png";
 import { Testimoni } from "../components/utils/Testimoni";
+import { courseDataDaerah,courseDataTarian, courseDataBudaya, courseDataBahasa} from "../components/utils/dataCourse";
 import axios from "axios";
 
 const DeskripsiCourse = () => {
+  const { idcourse } = useParams();
+ 
   const [deskripsi, setDeskripsi] = useState({
     name: "tes",
     category: "tes",
     province: "tes",
   });
-  // const handleAPI = async () => {
-  //   try {
-  //     const response = await axios
-  //       .get("https://anugrah.aenzt.tech/course/view")
-  //       .then((res) => {
-  //         setDeskripsi({
-  //           name: res.data.data.name,
-  //           category: res.data.data.category,
-  //           province: res.data.data.province,
-  //           city:res.data.data.city,
-  //           article:res.data.data.article,
-  //           picture:res.data.data.picture,
-  //           video:res.data.data.video,
-  //           rating:res.data.data.rating,
-  //           createAt:res.data.data.createAt,
-  //           updateAt:res.data.data.updateAt
-  //         });
-  //         console.log("sukses panggil api");
-  //       });
-  //   } catch (error) {
-  //     console.log("errornya:" + error.message);
-  //   }
-  // };
-  const handleAPI = () => {    
-   
-    console.log("disubmit")
-    axios.get("https://anugrah.aenzt.tech/auth/login",{
-      name: "Tari Saman"
-    }
-      
-    )
-      .then((response) => {
-        console.log(response);
-        setDeskripsi({
-          name: res.data.data.name,
-          category: res.data.data.category,
-          province: res.data.data.province
-          
+ 
+  const handleAPI = async () => {
+    try {
+      const response = await axios
+        .get("https://anugrah.aenzt.tech/course/view")
+        .then((res) => {
+          setDeskripsi({
+            name: res.data.data.name,
+            category: res.data.data.category,
+            province: res.data.data.province,
+          });
+          console.log("sukses panggil api");
         });
-      })
-      .catch((err) => {
-        console.log("errornya:" + err.message);
-        
-      });
+    } catch (error) {
+      console.log("errornya:" + error.message);
+    }
   };
+  // const handleAPI = () => {    
+   
+  //   console.log("disubmit")
+  //   axios.get("https://anugrah.aenzt.tech/course/view"
+      
+  //   )
+  //     .then((response) => {
+  //       console.log(response);
+  //       setDeskripsi({
+  //         name: response.data.data.name,
+  //         category: response.data.data.category,
+  //         province: response.data.data.province
+          
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       console.log("errornya:" + error.message);
+        
+  //     });
+  // };
 
-  // useEffect(() => {
-  //   handleAPI();
-  // }, []);
+  useEffect(() => {
+    handleAPI();
+  }, []);
 
-  const { idcourse } = useParams();
+  
   const [value, setValue] = useState("deskripsi");
   const handleNav = (val) => {
     setValue(val);
@@ -105,14 +103,14 @@ const DeskripsiCourse = () => {
             </div>
           </div>
           <div className="border-[grey] w-[200px] h-[120px] my-auto mx-[50px] border-[1px] px-[10px] py-[20px] rounded-2xl">
-          <NavLink to="/deskripsi/detailcourse">
+          {/* <NavLink to="/deskripsi/detailcourse"> */}
             <div
               onClick={handleAPI}
-              className="w-full h-[30px] border-[1px] rounded-[10px] bg-[#7E370C] text-white px-[58px]"
+              className="w-full h-[30px] border-[1px] rounded-[10px] bg-[#7E370C] text-white px-[58px] cursor-pointer"
             >
               Mulai
             </div>
-            </NavLink>
+            {/* </NavLink> */}
             <div className="w-full bg-[grey] h-[1px] my-[10px]"></div>
             <div className="w-full h-[30px] border-[1px] border-[grey] rounded-[10px] bg-white pl-[25px]">
               Informasi Kelas
@@ -129,7 +127,7 @@ const DeskripsiCourse = () => {
                 className="w-[30%] h-full pt-[15px]
                             "
               >
-                <img src={Jam} className="w-[40px] m-auto "></img>
+                <img src={Sertif} className="w-[40px] m-auto "></img>
               </div>
               <div className="w-[70%] h-[80%] my-auto">
                 <h3 className="font-semibold mt-[2px] ">Sertifikat</h3>
@@ -143,7 +141,7 @@ const DeskripsiCourse = () => {
                 className="w-[30%] h-full pt-[15px]
                             "
               >
-                <img src={Jam} className="w-[40px] m-auto "></img>
+                <img src={Chat} className="w-[40px] m-auto "></img>
               </div>
               <div className="w-[70%] h-[80%] my-auto">
                 <h3 className="font-semibold mt-[2px] ">Forum Diskusi</h3>
@@ -157,7 +155,7 @@ const DeskripsiCourse = () => {
                 className="w-[30%] h-full pt-[15px]
                             "
               >
-                <img src={Jam} className="w-[40px] m-auto "></img>
+                <img src={Youtube} className="w-[40px] m-auto "></img>
               </div>
               <div className="w-[70%] h-[80%] my-auto">
                 <h3 className="font-semibold mt-[2px] ">Modul Tutorial</h3>

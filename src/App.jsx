@@ -44,7 +44,7 @@ function App() {
         <Route path='/deskripsi/detailcourse' element={<DetailCourse/>}/>
         <Route path='/berlangganan' element={<Berlangganan />} />
         <Route path='/profil' element={<Profil />} />
-        <Route path='/payment' element={<Payment />} />
+        <Route path='/payment/:idpaket' element={<Payment />} />
         <Route path='/detailpayment' element={<DetailPayment />} />
        
         </Route>
