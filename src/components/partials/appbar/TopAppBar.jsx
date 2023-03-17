@@ -83,20 +83,20 @@ const TopAppBar = () => {
             ):(
               <>
               <li>
-              <a
-                href="/signup"
+              <NavLink
+                to="/signup"
                 className="block py-2 pl-3 pr-4 text-[#7E370C] rounded-xl hover:bg-[#FFCE45] hover:duration-700"
               >
                 Signup
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a
-                href="/login"
+              <NavLink
+                to="/login"
                 className="block py-2 pl-3 pr-4 text-[#7E370C] rounded-xl hover:bg-[#FFCE45] hover:duration-700"
               >
                 Login
-              </a>
+              </NavLink>
             </li>
             </>
             )

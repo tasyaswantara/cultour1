@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import Google from "../../assets/icons/Vector.png";
 import LoginPopup from "../partials/Popup/LoginPopup";
 
@@ -109,7 +109,7 @@ const LoginForm = () => {
         </div>
         <div className="bg-[#7E370C] w-[40%] h-[1px] opacity-50"></div>
       </div>
-      <a href="/signup">
+      <NavLink to="/signup">
       <div
         type="submit"
         className="flex justify-center items-center border-[1.5px] border-[#7E370C] py-2 px-7 rounded-[5px]"
@@ -119,7 +119,7 @@ const LoginForm = () => {
           Sign Up with Google
         </div>
       </div>
-      </a>
+      </NavLink>
     </form>
   );
 };
