@@ -16,7 +16,7 @@ const DetailPayment= ()=>{
   //   console.log(val);
   //   try {
   //     const response = await axios
-  //       .post("https://1871-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/subscription/subscribe", formData)
+  //       .post("https://anugrah.aenzt.tech/subscription/subscribe", formData)
   //       .then((res) => {
   //         console.log(res);
   //       });

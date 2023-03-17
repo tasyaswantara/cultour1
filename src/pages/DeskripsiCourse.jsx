@@ -26,7 +26,7 @@ const DeskripsiCourse = () => {
   const handleAPI = async () => {
     try {
       const response = await axios
-        .get(`https://1871-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/course/get/specific/${idcourse}`,{
+        .get(`https://anugrah.aenzt.tech/course/get/specific/${idcourse}`,{
           idcourse: {},})
         .then((res) => {
           setDeskripsi({

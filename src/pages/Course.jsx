@@ -17,7 +17,7 @@ const Course = () => {
   const handleDaerah = async () => {
     try {
       const response = await axios
-        .get("https://1871-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/course/get/daerah")
+        .get("https://anugrah.aenzt.tech/course/get/daerah")
         .then((res) => {
           setDaerah(res.data.data);
           console.log(res);
@@ -29,7 +29,7 @@ const Course = () => {
   const handleTarian = async () => {
     try {
       const response = await axios
-        .get("https://1871-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/course/get/tarian")
+        .get("https://anugrah.aenzt.tech/course/get/tarian")
         .then((res) => {
           setTarian(res.data.data);
           console.log(res);
@@ -41,7 +41,7 @@ const Course = () => {
   const handleBudaya = async () => {
     try {
       const response = await axios
-        .get("https://1871-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/course/get/budaya")
+        .get("https://anugrah.aenzt.tech/course/get/budaya")
         .then((res) => {
           setBudaya(res.data.data);
           console.log(res);
@@ -53,7 +53,7 @@ const Course = () => {
   const handleBahasa = async () => {
     try {
       const response = await axios
-        .get("https://1871-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/course/get/bahasa")
+        .get("https://anugrah.aenzt.tech/course/get/bahasa")
         .then((res) => {
           setBahasa(res.data.data);
           console.log(res);
