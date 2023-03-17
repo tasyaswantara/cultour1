@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import Google from "../../assets/icons/Vector.png"
+import { NavLink } from "react-router-dom";
 const SignupForm = () => {
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
@@ -88,7 +89,7 @@ const SignupForm = () => {
       )}
       <div className="text-[12px] my-[20px] float-right w-full font-semibold text-[#7E370C]">
         <input type="checkbox" className="align-middle mr-2"/>
-        Ingatkan saya
+        Ingat saya
         <div className="float-right opacity-50 hover:text-[#7E370C] hover:opacity-100 cursor-pointer">
           Lupa Password ?
         </div>
@@ -102,19 +103,22 @@ const SignupForm = () => {
       <div className="flex justify-center items-center py-2">
         <div className="bg-[#7E370C] w-[40%] h-[1px] opacity-50"></div>
         <div className="bg-white w-[40%] h-[18px] text-[10px] text-[#7E370C] opacity-50 text-center">
-          or Login with
+          Sudah punya akun?
         </div>
         <div className="bg-[#7E370C] w-[40%] h-[1px] opacity-50"></div>
       </div>
+      <NavLink to="/login">
       <div
         type=" "
         className="flex justify-center items-center border-[1.5px] border-[#7E370C] py-2 px-7 rounded-[5px]"
       >
+        
         <div className="flex pl-2 outline-none w-[90%] border-none justify-center items-center text-center text-[10px] font-semibold text-[#7E370C] m-auto ">
-          <img className="w-[13px] mr-1" src={Google} alt="Google" />
-          Sign Up with Google
+          Log In
         </div>
+        
       </div>
+      </NavLink>
     </form>
   );
 };

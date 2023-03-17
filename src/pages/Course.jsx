@@ -10,21 +10,52 @@ import { courseDataDaerah, courseDataTarian, courseDataBudaya, courseDataBahasa 
 
 
 const Course = () => {
-  const [deskripsi, setDeskripsi] = useState({
-    name: "tes",
-    category: "tes",
-    province: "tes",
-  });
-  const handleAPI = async () => {
+  const [daerah, setDaerah] = useState([]);
+  const [tarian, setTarian] = useState([]);
+  const [budaya, setBudaya] = useState([]);
+  const [bahasa, setBahasa] = useState([]);
+  const handleDaerah = async () => {
     try {
       const response = await axios
-        .get("https://f634-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/course/get/all")
+        .get("https://1871-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/course/get/daerah")
         .then((res) => {
-          setDeskripsi({
-            name: res.data.data.name,
-            category: res.data.data.category,
-            province: res.data.data.province,
-          });
+          setDaerah(res.data.data);
+          console.log(res);
+        });
+    } catch (error) {
+      console.log("errornya:" + error.message);
+    }
+  };
+  const handleTarian = async () => {
+    try {
+      const response = await axios
+        .get("https://1871-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/course/get/tarian")
+        .then((res) => {
+          setTarian(res.data.data);
+          console.log(res);
+        });
+    } catch (error) {
+      console.log("errornya:" + error.message);
+    }
+  };
+  const handleBudaya = async () => {
+    try {
+      const response = await axios
+        .get("https://1871-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/course/get/budaya")
+        .then((res) => {
+          setBudaya(res.data.data);
+          console.log(res);
+        });
+    } catch (error) {
+      console.log("errornya:" + error.message);
+    }
+  };
+  const handleBahasa = async () => {
+    try {
+      const response = await axios
+        .get("https://1871-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/course/get/bahasa")
+        .then((res) => {
+          setBahasa(res.data.data);
           console.log(res);
         });
     } catch (error) {
@@ -32,7 +63,10 @@ const Course = () => {
     }
   };
   useEffect(() => {
-    handleAPI()
+    handleDaerah()
+    handleTarian()
+    handleBudaya()
+    handleBahasa()
     
   }, []);
   return (
@@ -81,18 +115,17 @@ const Course = () => {
         </div>
         <div className="mb-[50px] w-full h-[230px] px-5 py-2  flex">  
 
-         {
-          courseDataDaerah.map((dataDaerah) => {
+         {daerah.map((daerah) => {
             return(
               <div className="h-[200px] w-[300px] bg-white my-auto rounded-2xl mx-3">
             <div className="h-[50%] bg-gradient-to-b from-[#ffce45] rounded-t-2xl w-full">
-            <img src={Coba} className="object-cover w-full h-full rounded-t-2xl opacity-75"></img>
+            <img src={daerah.picture} className="object-cover w-full h-full rounded-t-2xl opacity-75"></img>
             </div>
             <div className="bg-[#7E370C] h-[50%] rounded-b-2xl w-full px-3 py-1 text-white z-100">
-              <h3 className=" font-medium text-[17px]">{dataDaerah.title}</h3>
-              <p className="text-[8px]">{dataDaerah.description}</p>
+              <h3 className=" font-medium text-[17px]">{daerah.name}</h3>
+              <p className="text-[8px] h-[36px]">{daerah.description}</p>
               
-                <NavLink to={'/deskripsi/' + dataDaerah.id}>
+                <NavLink to={'/deskripsi/' + daerah.id}>
               <div className="w-[120px] h-[15px] mt-[8px] rounded-full text-[10px] my-auto text-center text-[#7E370C] font-medium bg-[#FFCE45] hover:scale-95 hover:duration-300 cursor-pointer">
             Pelajari sekarang
              </div>
@@ -151,16 +184,16 @@ const Course = () => {
         <div className="mb-[50px] w-full h-[230px] px-5 py-2  flex">         
          
         {
-          courseDataTarian.map((dataTarian) => {
+          tarian.map((tarian) => {
             return(
               <div className="h-[200px] w-[300px] bg-white my-auto rounded-2xl mx-3">
             <div className="h-[50%] bg-gradient-to-b from-[#ffce45] rounded-t-2xl w-full">
-            <img src={Coba} className="object-cover w-full h-full rounded-t-2xl opacity-75"></img>
+            <img src={tarian.picture} className="object-cover w-full h-full rounded-t-2xl opacity-75"></img>
             </div>
             <div className="bg-[#7E370C] h-[50%] rounded-b-2xl w-full px-3 py-1 text-white z-100">
-              <h3 className=" font-medium text-[17px]">{dataTarian.title}</h3>
-              <p className="text-[8px]">{dataTarian.description}</p>
-              <NavLink to={'/deskripsi/' + dataTarian.id}>
+              <h3 className=" font-medium text-[17px]">{tarian.name}</h3>
+              <p className="text-[8px] h-[36px]">{tarian.description}</p>
+              <NavLink to={'/deskripsi/' + tarian.id}>
               <div className="w-[120px] h-[15px] mt-[8px] rounded-full text-[10px] my-auto text-center text-[#7E370C] font-medium bg-[#FFCE45] hover:scale-95 hover:duration-300 cursor-pointer">
           Pelajari sekarang
         </div>
@@ -216,16 +249,16 @@ const Course = () => {
         <div className="mb-[50px] w-full h-[230px] px-5 py-2  flex">         
          
         {
-          courseDataBudaya.map((dataBudaya) => {
+          budaya.map((budaya) => {
             return(
               <div className="h-[200px] w-[300px] bg-white my-auto rounded-2xl mx-3">
             <div className="h-[50%] bg-gradient-to-b from-[#ffce45] rounded-t-2xl w-full">
-            <img src={Coba} className="object-cover w-full h-full rounded-t-2xl opacity-75"></img>
+            <img src={budaya.picture} className="object-cover w-full h-full rounded-t-2xl opacity-75"></img>
             </div>
             <div className="bg-[#7E370C] h-[50%] rounded-b-2xl w-full px-3 py-1 text-white z-100">
-              <h3 className=" font-medium text-[17px]">{dataBudaya.title}</h3>
-              <p className="text-[8px]">{dataBudaya.description}</p>
-              <NavLink to={'/deskripsi/' + dataBudaya.id}>
+              <h3 className=" font-medium text-[17px]">{budaya.name}</h3>
+              <p className="text-[8px] h-[36px]">{budaya.description}</p>
+              <NavLink to={'/deskripsi/' + budaya.id}>
               <div className="w-[120px] h-[15px] mt-[8px] rounded-full text-[10px] my-auto text-center text-[#7E370C] font-medium bg-[#FFCE45] hover:scale-95 hover:duration-300 cursor-pointer">
           Pelajari sekarang
         </div>
@@ -281,16 +314,16 @@ const Course = () => {
         <div className="mb-[50px] w-full h-[230px] px-5 py-2  flex">         
          
         {
-          courseDataBahasa.map((dataBahasa) => {
+          bahasa.map((bahasa) => {
             return(
-              <div className="h-[200px] w-[300px] bg-white my-auto rounded-2xl mx-3">
+              <div className="h-[200px] w-[300px] bg-white my-[10px] rounded-2xl mx-3">
             <div className="h-[50%] bg-gradient-to-b from-[#ffce45] rounded-t-2xl w-full">
-            <img src={Coba} className="object-cover w-full h-full rounded-t-2xl opacity-75"></img>
+            <img src={bahasa.picture} className="object-cover w-full h-full rounded-t-2xl opacity-75"></img>
             </div>
             <div className="bg-[#7E370C] h-[50%] rounded-b-2xl w-full px-3 py-1 text-white z-100">
-              <h3 className=" font-medium text-[17px]">{dataBahasa.title}</h3>
-              <p className="text-[8px]">{dataBahasa.description}</p>
-              <NavLink to={'/deskripsi/' + dataBahasa.id}>
+              <h3 className=" font-medium text-[17px]">{bahasa.name}</h3>
+              <p className="text-[8px] h-[36px]">{bahasa.description}</p>
+              <NavLink to={'/deskripsi/' + bahasa.id}>
               <div className="w-[120px] h-[15px] mt-[8px] rounded-full text-[10px] my-auto text-center text-[#7E370C] font-medium bg-[#FFCE45] hover:scale-95 hover:duration-300 cursor-pointer">
           Pelajari sekarang
         </div>

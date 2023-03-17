@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Batik from "../assets/icons/batik.png";
 import Orang1 from "../assets/images/fix1.png";
 import Budies from "../assets/icons/Buddies.png";
+import { NavLink } from "react-router-dom";
 import { dataStatistik1, ourCourse1 } from "../components/utils/dataHome";
 
 const Home = () => {
@@ -176,9 +177,11 @@ const Home = () => {
         <div className="w-[100%] h-[120px] text-xs text-center font-medium text-[#7E370C] pt-[20px]">
           {datacourse.deskripsi}
         </div>
+        <NavLink to="/course">
         <div className="w-[120px] h-[25px] mt-[20px] p-[3px] m-auto rounded-full text-xs text-center text-[#7E370C] font-semibold bg-[#FFCE45] hover:bg-[#7E370C] hover:text-white hover:duration-300 cursor-pointer">
           Read more
         </div>
+        </NavLink>
       </div>
             );
           })}

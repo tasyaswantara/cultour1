@@ -3,12 +3,55 @@ import Jam from "../assets/icons/jam.png";
 import Group from "../assets/icons/peoplegrup.png";
 import Video from "../assets/video/contoh.mp4"
 import Batik from "../assets/icons/batik.png";
+import axios from "axios";
 import { NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import { useState } from "react";
 import { Pertanyaan } from "../components/utils/Pertanyaan";
 
 
 const DetailCourse= ()=>{
+    const {idcourse}  = useParams();
+    const [deskripsi, setDeskripsi] = useState({
+        name: "tes",
+        category: "tes",
+        province: "tes",
+        description: "",
+        video1:"",
+        video2:"",
+        video3:"",
+        rating:0
+      });
+     
+      const handleAPI = async () => {
+        try {
+          const response = await axios
+            .get(`https://1871-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/course/get/specific/${idcourse}`,{
+                idcourse: {},})
+            .then((res) => {
+              setDeskripsi({
+                name: res.data.data.name,
+                category: res.data.data.category,
+                province: res.data.data.province,
+                description:res.data.data.description,
+                video1: res.data.data.video1,
+                video2: res.data.data.video2,
+                video3: res.data.data.video3,
+                rating:res.data.data.rating
+              });
+              console.log(res);
+            });
+        } catch (error) {
+          console.log("errornya:" + error.message);
+        }
+      };
+    
+      useEffect(() => {
+        handleAPI()
+        
+      }, []);
+    
     const [value, setValue] = useState("langkah1");
   const handleOpt = (val) => {
     setValue(val);
@@ -27,7 +70,7 @@ const DetailCourse= ()=>{
                     <div className="mx-auto my-[20px] rounded-[10px] w-[80%] h-[100px] border-[1px] border-[#7E370C] hover:bg-[#7E370C] hover:text-white hover:duration-1000">
                         <div className="m-auto w-[80%] h-[90%] py-[5px] text-[12px] font-semibold">
                             <div className="my-[5px]">Langkah 1</div>
-                            <div className="my-[5px]">Belajar Asal Muasal Benteng Rotterdam</div>
+                            <div className="my-[5px]">Belajar Asal Muasal {deskripsi.name}</div>
                             <div className="flex h-[20px] w-full">
                                 <div><img src={Jam} className="w-[12px] mt-[2px]"/></div>
                                 <div className="mx-[10px] text-[10px]">12 Menit</div>
@@ -46,7 +89,7 @@ const DetailCourse= ()=>{
                     <div className="mx-auto my-[20px] rounded-[10px] w-[80%] h-[100px] border-[1px] border-[#7E370C] hover:bg-[#7E370C] hover:text-white hover:duration-1000 cursor-pointer">
                         <div className="m-auto w-[80%] h-[90%] py-[5px] text-[12px] font-semibold">
                             <div className="my-[5px]">Langkah 2</div>
-                            <div className="my-[5px]">Belajar Asal Muasal Benteng Rotterdam</div>
+                            <div className="my-[5px]">Belajar Asal Muasal {deskripsi.name}</div>
                             <div className="flex h-[20px] w-full">
                                 <div><img src={Jam} className="w-[12px] mt-[2px]"/></div>
                                 <div className="mx-[10px] text-[10px]">12 Menit</div>
@@ -65,7 +108,7 @@ const DetailCourse= ()=>{
                     <div className="mx-auto my-[20px] rounded-[10px] w-[80%] h-[100px] border-[1px] border-[#7E370C] hover:bg-[#7E370C] hover:text-white hover:duration-1000 cursor-pointer">
                         <div className="m-auto w-[80%] h-[90%] py-[5px] text-[12px] font-semibold">
                             <div className="my-[5px]">Langkah 3</div>
-                            <div className="my-[5px]">Belajar Asal Muasal Benteng Rotterdam</div>
+                            <div className="my-[5px]">Belajar Asal Muasal {deskripsi.name}</div>
                             <div className="flex h-[20px] w-full">
                                 <div><img src={Jam} className="w-[12px] mt-[2px]"/></div>
                                 <div className="mx-[10px] text-[10px]">12 Menit</div>
@@ -84,7 +127,7 @@ const DetailCourse= ()=>{
                     <div className="mx-auto my-[20px] rounded-[10px] w-[80%] h-[100px] border-[1px] border-[#7E370C] hover:bg-[#7E370C] hover:text-white hover:duration-1000">
                         <div className="m-auto w-[80%] h-[90%] py-[5px] text-[12px] font-semibold">
                             <div className="my-[5px]">Kuis</div>
-                            <div className="my-[5px]">Belajar Asal Muasal Benteng Rotterdam</div>
+                            <div className="my-[5px]">Belajar Asal Muasal {deskripsi.name}</div>
                             <div className="flex h-[20px] w-full">
                                 <div><img src={Jam} className="w-[12px] mt-[2px]"/></div>
                                 <div className="mx-[10px] text-[10px]">12 Menit</div>
@@ -103,8 +146,28 @@ const DetailCourse= ()=>{
                 <div className="w-[60%] h-full mx-[10px] py-[20px]">
                 {value == "langkah1" ? (
                     <div className="w-[80%] h-[450px] m-auto p-0">
+                        <video className="w-full h-[90%]" controls>
+                            <source src={deskripsi.video1}/>
+                        </video>
+
+                    </div>
+                    ) : null}
+                    {value == "langkah2" ? (
+                    <div className="w-[80%] h-[450px] m-auto p-0">
+                        <video className="w-full h-[90%]" controls>
+                            <source src={deskripsi.video2}/>
+                        </video>                   
+                            
+
+                    </div>
+                    ) : null}
+                    {value == "langkah3" ? (
+                    <div className="w-[80%] h-[450px] m-auto p-0">
+                        <video className="w-full h-[90%]" controls>
+                            <source src={deskripsi.video3}/>
+                        </video>
                        
-                            <iframe className="w-full h-full aspect-video md:aspect-square" src="https://www.youtube.com/embed/W7QL7MBC2dM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                           
 
                     </div>
                     ) : null}
@@ -139,12 +202,12 @@ const DetailCourse= ()=>{
                             
                         );
                         })}
-                        <button
+                        <NavLink to="/"
         type="submit"
-        className="block w-[60px] float-right bg-[#7E370C] mt-2 py-2 rounded-[5px] text-white font-semibold text-[12px]"
+        className="block w-[60px] float-right pl-[10px] bg-[#7E370C] mt-2 py-2 rounded-[5px] text-white font-semibold text-[12px]"
       >
         Submit
-      </button>
+      </NavLink>
                             </form>
                         </div>
                     </>

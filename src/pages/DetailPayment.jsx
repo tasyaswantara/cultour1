@@ -4,9 +4,32 @@ import { useState } from "react";
 import BCA from "../assets/icons/bca.png"
 import Mandiri from "../assets/icons/mandiri.png"
 import Bri from "../assets/icons/bri.png"
+import axios from "axios";
 
 
 const DetailPayment= ()=>{
+  // const handlePost = async (val) => {
+  //  val.prevetDefault()
+  //   const formData = new FormData();
+  //   formData.append("token", window.localStorage.getItem('token'));
+  //   formData.append("file", val.file);
+  //   console.log(val);
+  //   try {
+  //     const response = await axios
+  //       .post("https://1871-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/subscription/subscribe", formData)
+  //       .then((res) => {
+  //         console.log(res);
+  //       });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // const dummyRequest = ({ file, onSuccess }) => {
+  //   setTimeout(() => {
+  //     onSuccess("ok");
+  //   }, 0);
+  // };
     const [value, setValue] = useState("bca");
   const handleNav = (val) => {
     setValue(val);
@@ -78,8 +101,8 @@ const DetailPayment= ()=>{
                     </>
                     ):null}
                     <div className="w-full h-[1px] bg-[grey] my-[10px]"></div>
-                    <NavLink
-        to="/home"
+                    <NavLink to="/"
+        
         className="w-[150px] h-[40px] float-right bg-[#7E370C] mt-1 py-3 px-[12px] rounded-[5px] text-white text-center font-semibold text-[12px]"
       >
         Selesai

@@ -1,12 +1,11 @@
 import AppLayout from "../components/partials/applayout/AppLayout";
 import { NavLink, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Coba from "../assets/images/indo.jpg";
 import Bintang from "../assets/icons/star.png";
 import Jam from "../assets/icons/jam.png";
 import Chat from "../assets/icons/chat.png";
 import Youtube from "../assets/icons/youtube.png";
-import Sertif from "../assets/icons/badge.png";
+import Sertif from "../assets/icons/award.png";
 import Group from "../assets/icons/peoplegrup.png";
 import { Testimoni } from "../components/utils/Testimoni";
 import { courseDataDaerah,courseDataTarian, courseDataBudaya, courseDataBahasa} from "../components/utils/dataCourse";
@@ -19,44 +18,31 @@ const DeskripsiCourse = () => {
     name: "tes",
     category: "tes",
     province: "tes",
+    description: "",
+    rating:0,
+    picture: ""
   });
  
   const handleAPI = async () => {
     try {
       const response = await axios
-        .get("https://f634-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/course/get/all")
+        .get(`https://1871-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/course/get/specific/${idcourse}`,{
+          idcourse: {},})
         .then((res) => {
           setDeskripsi({
             name: res.data.data.name,
             category: res.data.data.category,
             province: res.data.data.province,
+            description:res.data.data.description,
+            rating:res.data.data.rating,
+            picture:res.data.data.picture
           });
-          console.log("sukses panggil api");
+          console.log(res);
         });
     } catch (error) {
       console.log("errornya:" + error.message);
     }
   };
-  // const handleAPI = () => {    
-   
-  //   console.log("disubmit")
-  //   axios.get("https://anugrah.aenzt.tech/course/view"
-      
-  //   )
-  //     .then((response) => {
-  //       console.log(response);
-  //       setDeskripsi({
-  //         name: response.data.data.name,
-  //         category: response.data.data.category,
-  //         province: response.data.data.province
-          
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       console.log("errornya:" + error.message);
-        
-  //     });
-  // };
 
   useEffect(() => {
     handleAPI()
@@ -69,13 +55,17 @@ const DeskripsiCourse = () => {
     setValue(val);
   };
 
+  const tujuanHalaman=(tujuan)=>{
+    const element =document.getElementById(`${tujuan}`)
+    element.scrollIntoView({behavior:'smooth'})
+  }
   return (
     <AppLayout>
-      <div className="w-full h-[600px] mt-[80px]">
+      <div id="1" className="w-full h-[600px] mt-[80px]">
         <div className="w-[80%] h-[220px] m-auto flex">
           <div className="w-[280px] h-[180px] my-auto mx-[10px] rounded-2xl">
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Saman_dance.jpg"
+              src={deskripsi.picture}
               alt="gambar budaya"
               className="w-full h-full rounded-2xl"
             />
@@ -83,13 +73,13 @@ const DeskripsiCourse = () => {
           <div className="w-[400px] h-[180px] my-auto mx-[50px] p-[20px]">
             <div className="flex w-full font-semibold">
               <img src={Bintang} className="w-[25px] mr-[10px]" />
-              4.85
+              {deskripsi.rating}
             </div>
             <h3 className="font-semibold my-[10px] ">
-              Mulai Belajar Benteng Roterdam
+              Mulai Belajar {deskripsi.name}
             </h3>
             <p className="text-[10px] w-[200px]">
-              Mempelajari tentang Budaya yang terdapat pada Benteng Rotterdam
+              Mempelajari tentang Budaya yang terdapat pada {deskripsi.name}
             </p>
             <div className="flex w-full font-normal mt-[10px] text-[12px]">
               <img src={Jam} className="w-[10px] h-[10px] mt-[3px] mr-[10px]" />
@@ -113,9 +103,11 @@ const DeskripsiCourse = () => {
             </div>
             </NavLink>
             <div className="w-full bg-[grey] h-[1px] my-[10px]"></div>
-            <div className="w-full h-[30px] border-[1px] border-[grey] rounded-[10px] bg-white pl-[25px]">
+            <a onClick={()=> tujuanHalaman(2)}>
+            <div className="w-full h-[30px] border-[1px] border-[grey] rounded-[10px] bg-white pl-[25px] cursor-pointer">
               Informasi Kelas
             </div>
+            </a>
           </div>
         </div>
         <div className="w-[80%] h-[220px] mx-auto mt-[100px] px-[20px]">
@@ -168,7 +160,7 @@ const DeskripsiCourse = () => {
           </div>
         </div>
       </div>
-      <div className="w-full h-[1px] bg-[grey] my-[5px]"></div>
+      <div id="2" className="w-full h-[1px] bg-[grey] my-[5px]"></div>
       <div className="w-full h-[80px] my-[5px]">
         <div className=" w-[80%] h-full m-auto flex px-[10px]">
           <div className="my-auto w-[100px] font-semibold">
@@ -200,36 +192,7 @@ const DeskripsiCourse = () => {
             <>
               <h3 className="font-semibold text-[18px] my-[20px]">Deskripsi</h3>
               <p className="text-[15px] font-light my-[10px]">
-                Selamat datang di kelas video tentang Benteng Rotterdam! Kelas
-                ini akan membawa Anda pada sebuah petualangan sejarah yang
-                mengesankan. Benteng Rotterdam, atau dalam bahasa Belanda
-                disebut Fort Rotterdam, adalah sebuah benteng peninggalan
-                kolonial Belanda yang terletak di kota Makassar, Sulawesi
-                Selatan, Indonesia. Dalam kelas ini, Anda akan diajak untuk
-                menjelajahi sejarah Benteng Rotterdam dan memahami peran
-                pentingnya dalam perkembangan Kota Makassar dan wilayah
-                sekitarnya. Anda akan mempelajari sejarah dan arsitektur
-                benteng, termasuk bentuk pertahanannya dan penggunaannya selama
-                masa kolonial Belanda. <br /> <br />
-                Selain itu, Anda juga akan mengenal tokoh-tokoh penting dalam
-                sejarah Benteng Rotterdam dan belajar tentang peran mereka dalam
-                menjaga keamanan dan perdamaian di wilayah sekitarnya. <br />{" "}
-                <br />
-                Kelas video ini dilengkapi dengan gambar, video, dan narasi yang
-                menarik sehingga Anda dapat mempelajari sejarah Benteng
-                Rotterdam dengan mudah dan menyenangkan. Selain itu, kelas ini
-                juga dilengkapi dengan tanya jawab interaktif yang dapat
-                membantu Anda memperdalam pemahaman Anda tentang materi yang
-                telah dipelajari. <br /> <br />
-                Setelah menyelesaikan kelas video ini, Anda akan memiliki
-                pemahaman yang lebih baik tentang sejarah dan arsitektur Benteng
-                Rotterdam dan memahami betapa pentingnya benteng ini dalam
-                sejarah Indonesia. Anda juga dapat mengunjungi Benteng Rotterdam
-                secara langsung dan mengaplikasikan pengetahuan yang telah
-                dipelajari dalam kelas ini.
-                <br /> <br />
-                Gabunglah dengan kelas video ini dan temukan keindahan sejarah
-                Benteng Rotterdam yang mengesankan!
+               {deskripsi.description}
               </p>
             </>
           ) : null}
