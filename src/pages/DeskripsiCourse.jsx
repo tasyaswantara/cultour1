@@ -13,7 +13,7 @@ import { courseDataDaerah,courseDataTarian, courseDataBudaya, courseDataBahasa} 
 import axios from "axios";
 
 const DeskripsiCourse = () => {
-  const { idcourse } = useParams();
+  const {idcourse}  = useParams();
  
   const [deskripsi, setDeskripsi] = useState({
     name: "tes",
@@ -24,7 +24,7 @@ const DeskripsiCourse = () => {
   const handleAPI = async () => {
     try {
       const response = await axios
-        .get("https://anugrah.aenzt.tech/course/view")
+        .get("https://f634-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/course/get/all")
         .then((res) => {
           setDeskripsi({
             name: res.data.data.name,
@@ -59,7 +59,8 @@ const DeskripsiCourse = () => {
   // };
 
   useEffect(() => {
-    handleAPI();
+    handleAPI()
+    
   }, []);
 
   
@@ -103,7 +104,7 @@ const DeskripsiCourse = () => {
             </div>
           </div>
           <div className="border-[grey] w-[200px] h-[120px] my-auto mx-[50px] border-[1px] px-[10px] py-[20px] rounded-2xl">
-          <NavLink to="/deskripsi/detailcourse">
+          <NavLink to={"/deskripsi/detailcourse/"+ idcourse}>
             <div
               onClick={handleAPI}
               className="w-full h-[30px] border-[1px] rounded-[10px] bg-[#7E370C] text-white px-[58px] cursor-pointer"

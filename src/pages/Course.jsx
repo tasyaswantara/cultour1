@@ -3,11 +3,38 @@ import Search from "../../src/assets/icons/search.svg";
 import Arrow from "../assets/icons/right-arrow.png";
 import { NavLink } from "react-router-dom";
 import Coba from "../assets/images/indo.jpg"
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 import { courseDataDaerah, courseDataTarian, courseDataBudaya, courseDataBahasa } from "../components/utils/dataCourse";
 
 
 const Course = () => {
- 
+  const [deskripsi, setDeskripsi] = useState({
+    name: "tes",
+    category: "tes",
+    province: "tes",
+  });
+  const handleAPI = async () => {
+    try {
+      const response = await axios
+        .get("https://f634-2404-8000-1021-57-11c-ea10-d060-efb2.ap.ngrok.io/course/get/all")
+        .then((res) => {
+          setDeskripsi({
+            name: res.data.data.name,
+            category: res.data.data.category,
+            province: res.data.data.province,
+          });
+          console.log(res);
+        });
+    } catch (error) {
+      console.log("errornya:" + error.message);
+    }
+  };
+  useEffect(() => {
+    handleAPI()
+    
+  }, []);
   return (
     <AppLayout>
       

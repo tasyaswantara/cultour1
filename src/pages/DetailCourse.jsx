@@ -104,7 +104,7 @@ const DetailCourse= ()=>{
                 {value == "langkah1" ? (
                     <div className="w-[80%] h-[450px] m-auto p-0">
                        
-                            <iframe className="w-full h-full aspect-video md:aspect-square" src="https://www.youtube.com/embed/W7QL7MBC2dM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                            <iframe className="w-full h-full aspect-video md:aspect-square" src="https://www.youtube.com/embed/W7QL7MBC2dM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 
                     </div>
                     ) : null}
@@ -121,16 +121,16 @@ const DetailCourse= ()=>{
                                 <div className="text-[12px] font-semibold float-right block bg-white w-[60px] text-center rounded-[5px] border-[1px] my-2 border-[#7E370C]">{pertanyaan.poin} poin</div>
                                 </div>
                                 <label className="block">
-                                <input name={pertanyaan.id} type="radio" className="rounded-[5px] w-[unset] h-[10px] border-[#7E370C] border-[1px] text-[15px] text-[#7E370C] align-middle"/> Amsterdam
+                                <input name={pertanyaan.id} type="radio" className="rounded-[5px] w-[unset] h-[10px] border-[#7E370C] border-[1px] text-[15px] text-[#7E370C] align-middle"/> {pertanyaan.jawab1}
                                 </label>
                                 <label className="block">
-                                <input name={pertanyaan.id} type="radio" className="rounded-[5px] w-[unset] h-[10px] border-[#7E370C] border-[1px] text-[15px] text-[#7E370C] align-middle"/> Jakarta
+                                <input name={pertanyaan.id} type="radio" className="rounded-[5px] w-[unset] h-[10px] border-[#7E370C] border-[1px] text-[15px] text-[#7E370C] align-middle"/> {pertanyaan.jawab2}
                                 </label>
                                 <label className="block">
-                                <input name={pertanyaan.id} type="radio" className="rounded-[5px] w-[unset] h-[10px] border-[#7E370C] border-[1px] text-[15px] text-[#7E370C] align-middle"/> Medan
+                                <input name={pertanyaan.id} type="radio" className="rounded-[5px] w-[unset] h-[10px] border-[#7E370C] border-[1px] text-[15px] text-[#7E370C] align-middle"/> {pertanyaan.jawab3}
                                 </label>
                                 <label className="block">
-                                <input name={pertanyaan.id} type="radio" className="rounded-[5px] w-[unset] h-[10px] border-[#7E370C] border-[1px] text-[15px] text-[#7E370C] align-middle"/> Yuhu
+                                <input name={pertanyaan.id} type="radio" className="rounded-[5px] w-[unset] h-[10px] border-[#7E370C] border-[1px] text-[15px] text-[#7E370C] align-middle"/> {pertanyaan.jawab4}
                                 </label>
                                 
                                 

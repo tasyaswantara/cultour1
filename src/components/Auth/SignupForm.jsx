@@ -5,6 +5,11 @@ const SignupForm = () => {
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
   const [name,setName]=useState('')
+  const [success,setSuccess]=useState('')
+  const [error,setError]= useState({
+    message: '',
+    status: ''
+  })
   const handleSignup =(event)=>{
     event.preventDefault()
     axios.post('https://anugrah.aenzt.tech/auth/register',{
@@ -14,9 +19,11 @@ const SignupForm = () => {
     })
     .then((apapun)=>{
       console.log(apapun)
+      setSuccess(apapun.data.message)
     })
     .catch((error)=>{
       console.log(error)
+      setError(error.response.data)
     })
   }
   return (
@@ -50,7 +57,7 @@ const SignupForm = () => {
         <div className="flex items-center border-[1.5px] border-[#7E370C] py-2 px-3 rounded-[5px]">
           <input
             className="pl-2 outline-none w-full border-none text-[12px] text-[#7E370C] placeholder-[#7E370C] placeholder-opacity-50"
-            type="email"
+            type="text"
             name="Email"
             onChange={(e)=>{setEmail(e.target.value)}}
             required
@@ -73,6 +80,12 @@ const SignupForm = () => {
           />
         </div>
       </div>
+      {success === 'Register Successful' ? (
+        
+        <h3 className="text-[blue] text-[10px] mt-2 font-bold">{success}</h3>
+      ):(
+        <h3 className="text-[blue] text-[10px] mt-2 font-bold">{error.message}</h3>
+      )}
       <div className="text-[12px] my-[20px] float-right w-full font-semibold text-[#7E370C]">
         <input type="checkbox" className="align-middle mr-2"/>
         Ingatkan saya
