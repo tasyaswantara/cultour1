@@ -2,10 +2,12 @@ import axios from "axios";
 import { useState } from "react";
 import Google from "../../assets/icons/Vector.png"
 import { NavLink } from "react-router-dom";
+import SignUpPopup from "../partials/Popup/SignUpPopup";
 const SignupForm = () => {
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
   const [name,setName]=useState('')
+  const [showPopup, setShowPopup] = useState(false);
   const [success,setSuccess]=useState('')
   const [error,setError]= useState({
     message: '',
@@ -21,6 +23,7 @@ const SignupForm = () => {
     .then((apapun)=>{
       console.log(apapun)
       setSuccess(apapun.data.message)
+      setShowPopup(true);
     })
     .catch((error)=>{
       console.log(error)
@@ -36,6 +39,7 @@ const SignupForm = () => {
         Daftarkan akun kamu di <strong>Cultour</strong> untuk pengalaman yang
         menakjubkan!
       </p>
+      {showPopup && <SignUpPopup/>}
       <div className="my-[15px]">
         <span className="text-[10px] font-bold text-[#7E370C] mb-[50px]">
         Nama
