@@ -14,9 +14,7 @@ const LoginForm = () => {
     message: '',
     status: ''
   })
-  const handleClosePopup = () => {
-    setShowPopup(false);
-  };
+  
 
   const handleLogin = (event) => {    
     event.preventDefault()

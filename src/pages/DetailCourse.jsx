@@ -27,7 +27,7 @@ const DetailCourse= ()=>{
       const handleAPI = async () => {
         try {
           const response = await axios
-            .get(`https://anugrah.aenzt.tech/course/get/specific/${idcourse}`,{
+            .get(`https://anugrah.aenzt.tech/course/get/id/${idcourse}`,{
                 idcourse: {},})
             .then((res) => {
               setDeskripsi({
