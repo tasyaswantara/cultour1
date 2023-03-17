@@ -7,7 +7,7 @@ const Berlangganan = () => {
   return (
     <>
       <TopAppBar />
-      <div className="w-[90%] h-[400px] m-auto mt-[100px] mb-6">
+      <div className="w-[90%] min-h-full m-auto mt-[100px] mb-6">
         <div className="w-full h-[20%] text-center">
           <h3 className="text-[20px] font-semibold">Biaya Berlangganan</h3>
           <p className="text-[12px] mt-1">
@@ -41,7 +41,7 @@ const Berlangganan = () => {
          
         </div>
       </div>
-      <div className="h-[50px] w-full mt-[50px]">
+      <div className="h-[100px] w-full mt-[100px] absolute">
       <img src={Batik} className="w-full h-full"></img>
       </div>
       
