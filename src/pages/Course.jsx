@@ -74,11 +74,11 @@ const Course = () => {
       
       <div className="min-w-full h-[290px] mt-[50px]">
         <div className="h-[28px] w-[94%] m-auto flex">
-          <div className="w-[12%] align-middle pl-0">
+          <div className="md:w-[12%] w-[30%] align-middle pl-6 md:pl-0">
             <h3 className="text-[#7E370C] my-auto align-middle">Cari Daerah</h3>
           </div>
 
-          <div className="w-[30%]">
+          <div className="w-[30%] hidden md:block">
             <div className="border border-[#7E370C] h-[25px] text-[10px] font-semibold mx-2 my-auto rounded-2xl pl-2 py-[2px] flex">
               <div className="w-[5%]">
                 <svg
@@ -113,7 +113,7 @@ const Course = () => {
             <img className="w-[20px] h-[15px] ml-2" src={Arrow} alt="arrow"></img>
           </div>
         </div>
-        <div className="mb-[50px] w-full h-[230px] px-5 py-2  flex">  
+        <div className="mb-[50px] w-full h-[230px] px-5 md:py-2 py-9 flex">  
 
          {daerah.map((daerah) => {
             return(
@@ -122,8 +122,8 @@ const Course = () => {
             <img src={daerah.picture} className="object-cover w-full h-full rounded-t-2xl opacity-75"></img>
             </div>
             <div className="bg-[#7E370C] h-[50%] rounded-b-2xl w-full px-3 py-1 text-white z-100">
-              <h3 className=" font-medium text-[17px]">{daerah.name}</h3>
-              <p className="text-[8px] h-[36px]">{daerah.description}</p>
+              <h3 className=" font-medium md:text-[17px] text-[15px]">{daerah.name}</h3>
+              <p className="text-[8px] hidden md:block h-[36px]">{daerah.description}</p>
               
                 <NavLink to={'/deskripsi/' + daerah.id}>
               <div className="w-[120px] h-[15px] mt-[8px] rounded-full text-[10px] my-auto text-center text-[#7E370C] font-medium bg-[#FFCE45] hover:scale-95 hover:duration-300 cursor-pointer">
@@ -142,11 +142,11 @@ const Course = () => {
       
       <div className="min-w-full h-[290px]">
         <div className="h-[28px] w-[94%] m-auto flex">
-          <div className="w-[12%] align-middle pl-0">
+          <div className="md:w-[12%] w-[30%] align-middle pl-5 md:pl-0">
             <h3 className="text-[#7E370C] my-auto align-middle">Cari Tarian</h3>
           </div>
 
-          <div className="w-[30%]">
+          <div className="w-[30%] hidden md:block">
             <div className="border border-[#7E370C] h-[25px] text-[10px] font-semibold mx-2 my-auto rounded-2xl pl-2 py-[2px] flex">
               <div className="w-[5%]">
                 <svg
@@ -191,8 +191,8 @@ const Course = () => {
             <img src={tarian.picture} className="object-cover w-full h-full rounded-t-2xl opacity-75"></img>
             </div>
             <div className="bg-[#7E370C] h-[50%] rounded-b-2xl w-full px-3 py-1 text-white z-100">
-              <h3 className=" font-medium text-[17px]">{tarian.name}</h3>
-              <p className="text-[8px] h-[36px]">{tarian.description}</p>
+              <h3 className=" font-medium text-[15px] md:text-[17px]">{tarian.name}</h3>
+              <p className="text-[8px] hidden md:block h-[36px]">{tarian.description}</p>
               <NavLink to={'/deskripsi/' + tarian.id}>
               <div className="w-[120px] h-[15px] mt-[8px] rounded-full text-[10px] my-auto text-center text-[#7E370C] font-medium bg-[#FFCE45] hover:scale-95 hover:duration-300 cursor-pointer">
           Pelajari sekarang
@@ -207,11 +207,11 @@ const Course = () => {
       </div>
       <div className="min-w-full h-[290px]">
         <div className="h-[28px] w-[94%] m-auto flex">
-          <div className="w-[12%] align-middle pl-0">
+          <div className="md:w-[12%] w-[30%] align-middle pl-5 md:pl-0">
             <h3 className="text-[#7E370C] my-auto align-middle">Cari Budaya</h3>
           </div>
 
-          <div className="w-[30%]">
+          <div className="w-[30%] hidden md:block">
             <div className="border border-[#7E370C] h-[25px] text-[10px] font-semibold mx-2 my-auto rounded-2xl pl-2 py-[2px] flex">
               <div className="w-[5%]">
                 <svg
@@ -256,8 +256,8 @@ const Course = () => {
             <img src={budaya.picture} className="object-cover w-full h-full rounded-t-2xl opacity-75"></img>
             </div>
             <div className="bg-[#7E370C] h-[50%] rounded-b-2xl w-full px-3 py-1 text-white z-100">
-              <h3 className=" font-medium text-[17px]">{budaya.name}</h3>
-              <p className="text-[8px] h-[36px]">{budaya.description}</p>
+              <h3 className=" font-medium text-[15px] md:text-[17px]">{budaya.name}</h3>
+              <p className="text-[8px] hidden md:block h-[36px]">{budaya.description}</p>
               <NavLink to={'/deskripsi/' + budaya.id}>
               <div className="w-[120px] h-[15px] mt-[8px] rounded-full text-[10px] my-auto text-center text-[#7E370C] font-medium bg-[#FFCE45] hover:scale-95 hover:duration-300 cursor-pointer">
           Pelajari sekarang
@@ -272,11 +272,11 @@ const Course = () => {
       </div>
       <div className="min-w-full h-[290px]">
         <div className="h-[28px] w-[94%] m-auto flex">
-          <div className="w-[12%] align-middle pl-0">
+          <div className="md:w-[12%] w-[30%] align-middle pl-5 md:pl-0">
             <h3 className="text-[#7E370C] my-auto align-middle">Cari Bahasa</h3>
           </div>
 
-          <div className="w-[30%]">
+          <div className="w-[30%] hidden md:block">
             <div className="border border-[#7E370C] h-[25px] text-[10px] font-semibold mx-2 my-auto rounded-2xl pl-2 py-[2px] flex">
               <div className="w-[5%]">
                 <svg
@@ -321,8 +321,8 @@ const Course = () => {
             <img src={bahasa.picture} className="object-cover w-full h-full rounded-t-2xl opacity-75"></img>
             </div>
             <div className="bg-[#7E370C] h-[50%] rounded-b-2xl w-full px-3 py-1 text-white z-100">
-              <h3 className=" font-medium text-[17px]">{bahasa.name}</h3>
-              <p className="text-[8px] h-[36px]">{bahasa.description}</p>
+              <h3 className=" font-medium text-[15px] md:text-[17px]">{bahasa.name}</h3>
+              <p className="text-[8px] hidden md:block h-[36px]">{bahasa.description}</p>
               <NavLink to={'/deskripsi/' + bahasa.id}>
               <div className="w-[120px] h-[15px] mt-[8px] rounded-full text-[10px] my-auto text-center text-[#7E370C] font-medium bg-[#FFCE45] hover:scale-95 hover:duration-300 cursor-pointer">
           Pelajari sekarang

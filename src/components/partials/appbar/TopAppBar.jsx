@@ -34,17 +34,17 @@ const TopAppBar = () => {
     <>
     <nav className="px-2 sm:px-4 pt-1  fixed w-full bg-white z-20 top-0 left-0">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
-        <a href="/" className="flex items-center">
+        <a href="/" className="flex items-center md:mx-0 mx-auto">
           <Span >
             Cultour
           </Span>
         </a>
         <div className="flex md:order-2">
         <div
-          className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+          className="items-center justify-between w-full flex md:w-auto md:order-1"
           id="navbar-default"
         >
-          <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
+          <ul className="flex p-4 mt-4 mx-auto rounded-lg bg-white flex-row space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
           <li>
             <NavLink to="/berlangganan" className="block py-2 pl-3 pr-4  text-[#7E370C] rounded-xl hover:bg-[#FFCE45] hover:duration-700" activeclassname="active">
               Berlangganan            

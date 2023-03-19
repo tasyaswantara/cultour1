@@ -6,7 +6,7 @@ const AppLayout = ({ children }) => {
     return (
         <>
             <TopAppBar />
-            <div className="md:container md:mx-auto pt-16 ">
+            <div className="w-full min-[100px]:w-full mx-auto md:pt-16 pt-36 ">
                 {children}
             </div>
                 

@@ -41,7 +41,7 @@ const Berlangganan = () => {
          
         </div>
       </div>
-      <div className="h-[100px] w-full mt-[100px] absolute">
+      <div className="h-[100px] hidden md:block w-full mt-[100px] absolute">
       <img src={Batik} className="w-full h-full"></img>
       </div>
       
