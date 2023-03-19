@@ -2,6 +2,7 @@ import AppLayout from "../components/partials/applayout/AppLayout";
 import styled from "styled-components";
 import Batik from "../assets/icons/batik.png";
 import Orang1 from "../assets/images/fix1.png";
+import Orang2 from "../assets/icons/orangs.png";
 import Budies from "../assets/icons/Buddies.png";
 import { NavLink } from "react-router-dom";
 import { dataStatistik1, ourCourse1 } from "../components/utils/dataHome";
@@ -48,7 +49,7 @@ const Home = () => {
     width: 1000px;
     display: flex;
     border-radius: 20px;
-    position: absolute;
+    position:relative;
     @media only screen and (max-width: 900px) {
       width: 100%;
     }
@@ -60,12 +61,12 @@ const Home = () => {
 
         <GbrBatik src={Batik} alt="Batik" />
         <Konten className="min-w-min">
-          <div className="float-left w-[70%] h-[300px]">
+          <div className="float-left w-[60%] h-[300px]">
             <h3 className="font-bold text-2xl mx-7 px-7 pt-16 text-white">
               Belajar Budaya di Indonesia <br />
               dengan Satu Klik!
             </h3>
-            <p className="text-xs mx-7 px-7 py-4 text-white">
+            <p className="text-xs mx-7 px-7 py-5 text-white">
               Lebih dari 4,000+ pakaian, bahasa, makanan, musik, tari, hingga
               upacara adat yang dapat kamu pelajari. Ayo belajar berbagai budaya
               dan pelajari agar kita bisa berpartisipasi dalam melestastarikan
@@ -88,12 +89,14 @@ const Home = () => {
               </button>
             </form>
           </div>
+          <div className="float-right w-[40%] pt-0">
           <img
-            className="absolute w-[220px] mb-[50px] ml-[510px] "
-            src={Orang1}
+            className="w-[250px] h-full mt-0 "
+            src={Orang2}
             alt="Man"
           ></img>
-          <div className="flex flex-col w-[20%] bg-[#FFCE45] h-[229px] float-right mt-[40px] mr-10 rounded-t-full"></div>
+          </div>
+          
         </Konten>
       </section>
       <section>
@@ -166,7 +169,7 @@ const Home = () => {
       <section>
         <JudulSection>Our Course</JudulSection>
         <div className="absolute m-auto w-[100%] h-[300px] min-w-[900px]"></div>
-        <div className="bg-[#7E370C] h-[500px] px-[130px] py-[100px]">
+        <div className="bg-[#7E370C] h-[500px] py-[100px]">
           <KontainerPutih>
             {ourCourse1.map((datacourse) => {
             return (
